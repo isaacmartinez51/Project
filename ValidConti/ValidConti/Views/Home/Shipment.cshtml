@@ -1,0 +1,199 @@
+﻿@model Continental.CUP.Repositories.ViewModels.MonitorVModel
+@*@model IEnumerable<Continental.CUP.Repositories.ViewModels.OrderDetailVModel>*@
+@{
+    ViewData["Title"] = "Embarque";
+    Layout = "~/Views/Shared/_LayoutMonitor.cshtml";
+}
+
+<style>
+    body {
+        font-family: Arial;
+    }
+ .hero {
+        /* background:#BDBDBD ;
+        color: #31708f;
+        padding: 5px 15px;
+        display: grid;
+        grid-template-columns: minmax(1200px, 1600px);
+        justify-content: center;
+        min-height: 1300px; */
+
+        background: white;
+        color: black;
+        padding: 0px 25px;
+        display: grid;
+        grid-template-columns: minmax(auto, 1600px);
+        grid-template-rows: minmax(auto, auto);
+        justify-content: center;
+    }
+
+ .hero-container {
+    display: grid;
+    background:#BDBDBD; 
+    grid-template-columns: 100%;
+    grid-template-areas: "header" "table" "." ".""footer";
+    padding: 10px 50px;
+    /* min-height: 900px; */
+    gap: 10px;
+    }
+ .header {
+        background: #F39C12;
+        grid-area: header;
+        padding: 5px 15px;
+        display: inline-block;
+       
+    }
+    #titulo{
+        min-height: 150px !important;
+    }
+
+    /*.container1 {
+                display: grid;
+                grid-template: auto / auto;
+                grid-template-columns: 25% 75%;
+                grid-template-rows: 600px;
+                grid-column-gap:10px;
+                grid-row-gap: 10px;
+                grid-gap: 10px 10px;
+                grid-template-areas: "List Pallet";
+            }
+
+            .item {
+                padding: 10px;
+                border: 1px solid red;
+                background: lightblue;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: bold;
+                color: black;
+            }*/
+    .table {
+        grid-area: table;
+        background: #6d932b;
+        color: #23475b;
+        padding: 10px 15px;
+        border-radius: 5px;
+        border: none;
+        font-size: 16px;
+        min-width: 700px;
+        min-height: 400px; */
+        border-bottom: 5px solid #6d932b; 
+        /* display: inline-block; */
+    }
+
+
+    #rowcolor {
+        background: black;
+    }
+    .footer {
+        grid-area: footer;
+    }
+    .tableStyle{
+        background-color: white;
+        text-align: left;
+        width: 100%; 
+    }
+    th,td{
+        padding: 20px;
+    }
+    thead{
+        background-color: #246355;
+        border-bottom: solid 5px;
+        color: white;
+        padding: 15;
+        min-height: 100px;
+    }
+    tr:nth-child(even){
+        background-color: #ddd;
+    }
+    tr:hover td{
+        background-color: #369681;
+        color:white;
+    }
+</style>
+
+<div class="hero">
+
+    <div class="hero-container">
+
+        <header class="header" id="titulo">
+            <h2>@ViewData["Title"]</h2>
+            <h3>@ViewData["Message"]<strong>@Model.Portal</strong></h3>
+            Detalles del Embarque n.- <strong>@Model.Embarque</strong>
+            <input type="text" value="@Model.Portal" id="portal"  hidden disabled="disabled" />
+            <input type="text" value="@Model.Embarque" id="embarque" hidden disabled="disabled" />
+        </header>
+        <!-- <div class="table"> -->
+
+            <table id="dt_basic" class="table tableStyle">  <!-- -->
+                <thead>
+                    <tr>
+                        <th data-class="expand"><i class="fa fa-fw fa-user text-muted hidden-md hidden-sm hidden-xs"></i> @Html.DisplayNameFor(model => model.OrderDetail.FirstOrDefault().traza)</th>
+                        <th data-class="expand"><i class="fa fa-fw fa-user text-muted hidden-md hidden-sm hidden-xs"></i> @Html.DisplayNameFor(model => model.OrderDetail.FirstOrDefault().partida)</th>
+                        <th data-class="expand"><i class="fa fa-fw fa-user text-muted hidden-md hidden-sm hidden-xs"></i> @Html.DisplayNameFor(model => model.OrderDetail.FirstOrDefault().continentalpartnumber)</th>
+                        <th data-class="expand"><i class="fa fa-fw fa-user text-muted hidden-md hidden-sm hidden-xs"></i> @Html.DisplayNameFor(model => model.OrderDetail.FirstOrDefault().total_pallets)</th>
+                        @*<th data-class="expand"><i class="fa fa-fw fa-user text-muted hidden-md hidden-sm hidden-xs"></i> @Html.DisplayNameFor(model => model.OrderDetail.FirstOrDefault().Leido)</th>*@
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.OrderDetail)
+                    {
+                        @if (item.Leido == true)
+                        {
+                            <tr id="rowcolor">
+                                <td id="traza">
+                                    @Html.DisplayFor(modelItem => item.traza)
+                                </td>
+                                <td id="partida">
+                                    @Html.DisplayFor(modelItem => item.partida)
+                                </td>
+                                <td id="continentalpartnumber">
+                                    @Html.DisplayFor(modelItem => item.continentalpartnumber)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.total_pallets)
+                                </td>
+                                @*<td>
+                                        @Html.DisplayFor(modelItem => item.Leido)
+
+                                    </td>*@
+                            </tr>
+                        }
+                        else
+                        {
+                            <tr>
+                                <td id="traza">
+                                    @Html.DisplayFor(modelItem => item.traza)
+                                </td>
+                                <td id="partida">
+                                    @Html.DisplayFor(modelItem => item.partida)
+                                </td>
+                                <td id="continentalpartnumber">
+                                    @Html.DisplayFor(modelItem => item.continentalpartnumber)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.total_pallets)
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        <!-- </div> -->
+        <hr />
+        <footer class="footer">
+           <p>&copy; 2019 - Gemetytec</p>
+        </footer>
+    </div>
+
+</div>
+
+<!-- <p>Use this area to provide additional information.</p> -->
+
+<script src="~/lib/signalr/dist/browser/signalr.js"></script>
+<!-- <script src="~/js/shipment.js"></script> -->
+<script>
+                                                        //document.getElementById("rowcolor");
+                                                        //console.log(document.getElementById("rowcolor").innerHTML);
+</script>

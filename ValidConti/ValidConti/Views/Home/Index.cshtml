@@ -1,0 +1,85 @@
+﻿@model Continental.CUP.Repositories.ViewModels.OrderVModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    if (null != ViewBag.shipment || ViewBag.shipment == "")
+    {
+        <script type="text/javascript">
+            var shipment = '@ViewBag.shipment';
+            alert('@ViewBag.shipment');
+            var elem = document.getElementById("Embarque");
+            console.log(elem);
+        </script>
+       
+    }
+}
+
+<style>
+    .index {
+        padding-top: 20px;
+    }
+
+    #nembarque {
+        color: black;
+    }
+</style>
+
+<div class="container">
+    <div class="row center-block">
+        @if (ViewBag.Show == false)
+        {
+            <div class="col-md-4 center-block index">
+                <div class="well no-padding">
+                    <form id="" class="smart-form client-form" method="post">
+                        <header>
+                            Embarque
+                        </header>
+
+                        <fieldset>
+                            Ingresa el número del Embarque.
+                            <section>
+                                <label id="nembarque" class="label">No.-Embarque</label>
+                                <label class="input" id="iptEmbarque">
+                                    <i class="icon-append glyphicon glyphicon-inbox"></i>
+                                    <input id="Embarque" asp-for="ShipmentNumber" class="form-control" required />
+                                    <span asp-validation-for="ShipmentNumber" class="text-danger"></span>
+                                    <b class="tooltip tooltip-top-right"><i class="fa fa-user txt-color-teal"></i> El número del embarque es requerido.</b>
+                                </label>
+                            </section>
+
+                        </fieldset>
+                        <footer>
+
+                            <button id="Enviar" type="submit" class="btn btn-primary">
+                                Enviar
+                            </button>
+
+
+                        </footer>
+                    </form>
+                </div>
+            </div>
+        }
+       
+        <div class="col-md-1"></div>
+        @if (ViewBag.Show == true)
+        {
+            @*@Html.Partial("_ShipmentDetail", Model.ListOrderDetail)*@
+            <partial name="_ShipmentDetail" model="Model" />
+        }
+
+
+    </div>
+</div>
+<script type="text/javascript">
+   
+</script>
+<script type="text/javascript" src="~/js/libs/jquery-3.2.1.js"></script>
+<script>
+    $(document).ready(function () {
+        console.log("Entre al if inferior");
+        $('#Embarque').val();
+        console.log($('#qrCode1').val());
+    });
+
+</script>
