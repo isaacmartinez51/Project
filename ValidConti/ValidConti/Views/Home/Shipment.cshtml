@@ -77,7 +77,7 @@
         border: none;
         font-size: 16px;
         min-width: 700px;
-        min-height: 400px; */
+        min-height: 400px;
         border-bottom: 5px solid #6d932b; 
         /* display: inline-block; */
     }
@@ -121,8 +121,9 @@
             <h2>@ViewData["Title"]</h2>
             <h3>@ViewData["Message"]<strong>@Model.Portal</strong></h3>
             Detalles del Embarque n.- <strong>@Model.Embarque</strong>
-            <input type="text" value="@Model.Portal" id="portal"  hidden disabled="disabled" />
+            <input type="text" value="@Model.Portal" id="portal" hidden disabled="disabled" />
             <input type="text" value="@Model.Embarque" id="embarque" hidden disabled="disabled" />
+            <input type="button" value="Regresar" onclick="window.location='@Url.Action("Monitor","Home", @Model)'" />
         </header>
         <!-- <div class="table"> -->
 
