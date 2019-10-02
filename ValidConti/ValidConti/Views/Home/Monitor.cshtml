@@ -1,0 +1,106 @@
+﻿@model Continental.CUP.Repositories.ViewModels.MonitorVModel
+@{
+    ViewData["Title"] = "Contact";
+    Layout = "~/Views/Shared/_LayoutMonitor.cshtml";
+}
+
+<!-- <h2>@ViewData["Title"]</h2>
+<h3>@ViewData["Message"]</h3> -->
+<style>
+    .hero {
+        background: white;
+        color: black;
+        padding: 0px 25px;
+        display: grid;
+        grid-template-columns: minmax(auto, 1600px);
+        grid-template-rows: minmax(120px, 800px);
+        justify-content: center;
+        /* min-height: 1900px;
+        min-width: 1300px; */
+    }
+
+    .hero-container {
+        display: grid;
+        background:#BDBDBD; 
+        grid-template-columns: 1fr;
+        grid-template-areas: "header" "validPallet" "footer";
+        padding: 10px 50px;
+        min-height: 900px;
+    }
+    .header {
+        grid-area: header;
+        background: #F39C12;
+        padding: 10px 10px;
+        
+    }
+
+    .footer {
+        grid-area: footer;
+    }
+
+
+    .validPallet {
+        grid-area: validPallet;
+        background: #E6E6E6;
+        color: #23475b;
+        padding: 10px 15px;
+        border-radius: 5px;
+        border: none;
+        font-size: 16px;
+        min-height: 700px;
+        min-width: 700px;
+        /* display: inline-block;     width='900' height='800'*/
+    }
+
+        .validPallet p {
+            text-align: center;
+            align-items: center;
+        }
+
+   
+
+    .shipmentTable {
+        grid-area: shipmentTable;
+        background: #98ca3f;
+        color: #23475b;
+        padding: 10px 15px;
+        border-radius: 5px;
+        border: none;
+        font-size: 16px;
+    }
+</style>
+
+
+<div class=" hero">
+    <div class="hero-container">
+        <header class="header">
+            Detalles del Embarque n.- <strong>@Model.Embarque</strong>
+            <input type="button" value="Información embarque" onclick="window.location='@Url.Action("Shipment","Home", @Model)'" />
+            <input type="button" value="Terminar embarque" onclick="window.location='@Url.Action("FinishedShipment","Home", @Model)'" />
+        </header>
+        <input type="text" value="@Model.Portal" id="portal" hidden disabled="disabled" />
+        <input type="text" value="@Model.Embarque" id="embarque" hidden disabled="disabled" />
+        <div class="validPallet" id="dataShip">
+
+            <p>
+                Esperando lectura de pallet...
+            </p>
+
+        </div>
+
+        <hr />
+        <footer class="footer">
+
+            <p>&copy; 2019 - Gemetytec</p>
+        </footer>
+
+    </div>
+</div>
+<script src="~/lib/signalr/dist/browser/signalr.js"></script>
+<script src="~/js/shipment.js"></script>
+<script type="text/javascript" src="~/js/libs/jquery-3.2.1.js"></script>
+<script>
+    $(document).ready(function () {
+    });
+
+</script>

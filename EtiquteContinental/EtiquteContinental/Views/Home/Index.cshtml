@@ -1,0 +1,38 @@
+﻿@model EtiquteContinental.Models.SerialPrintModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container">
+    <div class="row center-block">
+        <div class="col-md-4 center-block">
+            <div class="well no-padding">
+                <form id="" class="smart-form client-form" method="post">
+                    <header>
+                        Impresión de etiquetas Blackflush
+                    </header>
+
+                    <fieldset>
+                        Escanea el número de serie
+                        <section>
+                            <label asp-for="Serial" class="label"></label>
+                            <label class="input">
+                                <i class="icon-append glyphicon glyphicon-barcode"></i>
+                                <input asp-for="Serial" class="form-control" />
+                                <span asp-validation-for="Serial" class="text-danger"></span>
+                                <b class="tooltip tooltip-top-right"><i class="fa fa-user txt-color-teal"></i> El serial es requerido.</b>
+                            </label>
+                        </section>
+
+                    </fieldset>
+                    <footer>
+                        <button type="submit" class="btn btn-primary">
+                            Enviar
+                        </button>
+                    </footer>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

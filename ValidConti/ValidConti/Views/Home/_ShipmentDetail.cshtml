@@ -1,0 +1,125 @@
+﻿@*@model Continental.CUP.Business.ViewModel.Base.OrderModel*@
+@*@model IEnumerable<Continental.CUP.Business.ViewModel.Base.OrderDetailModel>*@
+
+@model Continental.CUP.Repositories.ViewModels.OrderVModel
+<style>
+    .DropDown {
+    padding-top:10px;
+    padding-bottom: 10px;
+    }
+    #ReaderID {
+        width: 217px;
+        height: 32px;
+    }
+    #bot {
+        width: 217px;
+        margin-left: 15px;
+    }
+    .index {
+        padding-top: 20px;
+    }
+    .tableStyle{
+        background-color: white;
+        text-align: left;
+        width: 100%; 
+    }
+    th,td{
+        padding: 20px;
+    }
+    thead{
+        background-color: #246355;
+        border-bottom: solid 5px;
+        color: white;
+        padding: 15;
+        min-height: 100px;
+    }
+    tr:nth-child(even){
+        background-color: #ddd;
+    }
+    tr:hover td{
+        background-color: #369681;
+        color:white;
+    }
+</style>
+<div class="col-md-6 center-block index">
+    <div class="well no-padding index">
+        <form id="" action="/Home/SetShipment" class="smart-form client-form" method="post">
+            <header>
+                Detalles del Embarque n.- <strong>@Model.ListOrderDetail[0].embarque</strong>
+            </header>
+
+
+
+            <table id="dt_basic" class="table tableStyle" width="100%">
+                <thead>
+                    <tr>
+                        <th data-class="expand"><i class="fa fa-fw fa-user text-muted hidden-md hidden-sm hidden-xs"></i> @Html.DisplayNameFor(model => model.ListOrderDetail.FirstOrDefault().traza)</th>
+                        <th data-class="expand"><i class="fa fa-fw fa-user text-muted hidden-md hidden-sm hidden-xs"></i> @Html.DisplayNameFor(model => model.ListOrderDetail.FirstOrDefault().partida)</th>
+                        <th data-class="expand"><i class="fa fa-fw fa-user text-muted hidden-md hidden-sm hidden-xs"></i> @Html.DisplayNameFor(model => model.ListOrderDetail.FirstOrDefault().continentalpartnumber)</th>
+                        <th data-class="expand"><i class="fa fa-fw fa-user text-muted hidden-md hidden-sm hidden-xs"></i> @Html.DisplayNameFor(model => model.ListOrderDetail.FirstOrDefault().total_pallets)</th>
+                        <th data-class="expand"><i class="fa fa-fw fa-user text-muted hidden-md hidden-sm hidden-xs"></i> @Html.DisplayNameFor(model => model.ListOrderDetail.FirstOrDefault().notas)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.ListOrderDetail)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.traza)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.partida)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.continentalpartnumber)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.total_pallets)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.notas)
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+
+
+            <fieldset>
+                <section class="DropDown">
+                    <br />
+                    @Html.DropDownList("ReaderID", (IEnumerable<SelectListItem>)ViewBag.ReaderList, "Seleccione Anden")
+                    <input type="hidden" asp-for="OrderID" class="form-control" />
+                   
+                    <button id="bot" disabled="disabled" type="submit" class="btn btn-success">
+                        Asignar embarque
+                    </button>
+                </section>
+                
+
+            </fieldset>
+            <footer>
+               
+            </footer>
+
+
+        </form>
+    </div>
+</div>
+<script type="text/javascript" src="~/js/libs/jquery-3.2.1.js"></script>
+<script>
+    $(document).ready(function () {
+        console.log("Entre");
+        $("#ReaderID").change(function () {
+            if ($("#ReaderID").val().length > 0) {
+                $("#bot").attr("disabled", false)
+            } else {
+                $("#bot").attr("disabled", true)
+            }
+        })
+    });
+
+</script>
+
+
