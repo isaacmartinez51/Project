@@ -23,6 +23,7 @@ namespace Continental.CUP.Repositories.ViewModels
 
         public bool? OnShipment { get; set; }
         public bool? Finished { get; set; }
+        public string Portal { get; set; }
 
         public List<OrderDetailVModel> ListOrderDetail { get; set; }
     }

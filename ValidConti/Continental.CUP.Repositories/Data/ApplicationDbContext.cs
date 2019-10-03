@@ -22,6 +22,7 @@ namespace Continental.CUP.Repositories.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
             IConfigurationBuilder build = new ConfigurationBuilder();
+
             build.SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("appsettings.json");
             var config = build.Build();

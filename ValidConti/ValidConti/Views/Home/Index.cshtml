@@ -10,7 +10,14 @@
             var elem = document.getElementById("Embarque");
             console.log(elem);
         </script>
-       
+
+    }
+    if (ViewBag.Alert == false)
+    {
+        <script type="text/javascript">
+           
+            alert('Entre');
+        </script>
     }
 }
 
@@ -60,7 +67,7 @@
                 </div>
             </div>
         }
-       
+
         <div class="col-md-1"></div>
         @if (ViewBag.Show == true)
         {
@@ -72,7 +79,7 @@
     </div>
 </div>
 <script type="text/javascript">
-   
+
 </script>
 <script type="text/javascript" src="~/js/libs/jquery-3.2.1.js"></script>
 <script>

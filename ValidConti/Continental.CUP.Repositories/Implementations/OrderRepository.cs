@@ -31,7 +31,7 @@ namespace Continental.CUP.Repositories.Implementations
                 List<OrderDetailVModel> orderDetailList = new List<OrderDetailVModel>();
 
 
-                Exist(x => x.ShipmentNumber == order.ShipmentNumber);
+                //Exist(x => x.ShipmentNumber == order.ShipmentNumber);
                 orderModel = GetItemByExpression(x => x.ShipmentNumber == order.ShipmentNumber);
 
                 var lastItemOrder = Context.Order.LastOrDefault();
@@ -139,52 +139,91 @@ namespace Continental.CUP.Repositories.Implementations
         /// <returns></returns>
         public OrderVModel GetQueryOrderComplete(int id)
         {
-            List<OrderDetailVModel> query = Context.OrderDetail
-                .Where(x => x.OrderID == id).Select(x => new OrderDetailVModel
+            try
+            {
+                List<OrderDetailVModel> query = Context.OrderDetail
+                       .Where(x => x.OrderID == id).Select(x => new OrderDetailVModel
+                       {
+                           OrderID = x.OrderID,
+                           partida = x.partida,
+                           total_pallets = x.total_pallets,
+                           continentalpartnumber = x.continentalpartnumber,
+                           customerpartnumber = x.customerpartnumber,
+                           traza = x.traza,
+                           notas = x.notas,
+                           Leido = x.Leido
+                       }).ToList();
+
+                OrderVModel order = ReadsItems(x => x.OrderID == id).Select(x => new OrderVModel
                 {
                     OrderID = x.OrderID,
-                    partida = x.partida,
-                    total_pallets = x.total_pallets,
-                    continentalpartnumber = x.continentalpartnumber,
-                    customerpartnumber = x.customerpartnumber,
-                    traza = x.traza,
-                    notas = x.notas,
-                    Leido = x.Leido
-                }).ToList();
+                    ReaderID = x.ReaderID,
+                    Number = x.Number,
+                    ShipmentNumber = x.ShipmentNumber,
+                    OnShipment = x.OnShipment,
+                    Date = x.Date,
+                    Finished = x.Finished
+                }).FirstOrDefault();
 
-            OrderVModel order = ReadsItems(x => x.OrderID == id).Select(x => new OrderVModel
+                order.ListOrderDetail = query;
+                return order;
+            }
+            catch (Exception ex)
             {
-                OrderID = x.OrderID,
-                ReaderID = x.ReaderID,
-                Number = x.Number,
-                ShipmentNumber = x.ShipmentNumber,
-                OnShipment = x.OnShipment,
-                Date = x.Date,
-                Finished = x.Finished
-            }).FirstOrDefault();
-
-            order.ListOrderDetail = query;
-            return order;
+                throw new DataValidationException("Error", string.Format("No fué posible crear el embarque: {0}", ex.Message));
+            }
         }
         public OrderVModel GetOrderOnshipment(string embarque)
         {
-
-            OrderVModel order = ReadsItems(x => x.ShipmentNumber == embarque && x.OnShipment == true).Select(x => new OrderVModel
+            try
             {
-                OrderID = x.OrderID,
-                ReaderID = x.ReaderID,
-                Number = x.Number,
-                ShipmentNumber = x.ShipmentNumber,
-                OnShipment = x.OnShipment,
-                Date = x.Date,
-                Finished = x.Finished
-            }).FirstOrDefault();
-            return order;
+
+                OrderVModel order = (from orders in ReadsItems(x => x.ShipmentNumber == embarque && x.OnShipment == true)
+                           join reader in Context.Reader on orders.ReaderID equals reader.ReaderID
+                           select new
+                           {
+                               orders,
+                               reader
+                           }).Select(x => new OrderVModel
+                           {
+                               OrderID = x.orders.OrderID,
+                               ReaderID = x.orders.ReaderID,
+                               Number = x.orders.Number,
+                               ShipmentNumber = x.orders.ShipmentNumber,
+                               OnShipment = x.orders.OnShipment,
+                               Date = x.orders.Date,
+                               Finished = x.orders.Finished,
+                               Portal = x.reader.Name
+                           }).FirstOrDefault();
+
+                //OrderVModel order = ReadsItems(x => x.ShipmentNumber == embarque && x.OnShipment == true).Select(x => new OrderVModel
+                //{
+                //    OrderID = x.OrderID,
+                //    ReaderID = x.ReaderID,
+                //    Number = x.Number,
+                //    ShipmentNumber = x.ShipmentNumber,
+                //    OnShipment = x.OnShipment,
+                //    Date = x.Date,
+                //    Finished = x.Finished
+                //}).FirstOrDefault();
+                return order;
+            }
+            catch (Exception ex)
+            {
+                throw new DataValidationException("Error", string.Format("No fué posible crear el embarque: {0}", ex.Message));
+            }
         }
         public OrderEModel GetOrderEModel(string embarque)
         {
-            OrderEModel order = ReadsItems(x => x.ShipmentNumber == embarque && x.OnShipment == true).FirstOrDefault();
-            return order;
+            try
+            {
+                OrderEModel order = ReadsItems(x => x.ShipmentNumber == embarque && x.OnShipment == true).FirstOrDefault();
+                return order;
+            }
+            catch (Exception ex)
+            {
+                throw new DataValidationException("Error", string.Format("No fué posible crear el embarque: {0}", ex.Message));
+            }
         }
 
     }

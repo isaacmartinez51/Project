@@ -38,6 +38,8 @@ namespace Continental.CUP.Repositories.Implementations
 
         public IQueryable<OrderDetailVModel> GetQueryOrderDetail(int id)
         {
+            var order = Context.Order.FirstOrDefault(x => x.OrderID == id);
+            var portal = Context.Reader.FirstOrDefault(x => x.ReaderID == order.ReaderID);
             return ReadsItems(x => x.OrderID == id).Select(x => new OrderDetailVModel
             {
                 OrderID = x.OrderID,
@@ -52,7 +54,8 @@ namespace Continental.CUP.Repositories.Implementations
                 traza = x.traza,
                 shipment = x.shipment,
                 notas = x.notas,
-                Leido = x.Leido
+                Leido = x.Leido,
+                Portal = portal.Name
             });
         }
         public OrderDetailEModel GetQueryOrderDetail(int orderId, string partNumber)

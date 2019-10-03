@@ -15,6 +15,7 @@ using Continental.CUP.Repositories.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Newtonsoft.Json;
+using Oracle.ManagedDataAccess.Client;
 using ValidConti.Models;
 
 namespace ValidConti.Controllers
@@ -64,6 +65,15 @@ namespace ValidConti.Controllers
         }
         #endregion
 
+        #region Exceptions
+        [HttpPost]
+        public IActionResult Exceptions()
+        {
+
+            return View();
+        }
+        #endregion
+
         #region Index Enviar
         /// <summary>
         /// This method is called when is need to create an order.
@@ -75,6 +85,7 @@ namespace ValidConti.Controllers
         {
             OrderVModel orders = new OrderVModel();
             OrderEModel orderModel = new OrderEModel();
+            int palletBox = 0;
 
             try
             {
@@ -86,26 +97,44 @@ namespace ValidConti.Controllers
                     var exist = _contextOrder.GetOrderOnshipment(item.ShipmentNumber);
                     if (exist == null)
                     {
-                       
                         #region obtener información de embarques
                         //1.- Obtener el total de piezas
                         ShipmentVModel result = test(item.ShipmentNumber);
+
                         int index = 0;
                         // 1.1.-Obtener de traza el total de piezas por tarima del número de parte
                         foreach (OrderDetailVModel embarque in result.detalle)
                         {
+                            #region Connection Traza
+                            string oracleConn = "Data Source= tqdb002x.tq.mx.conti.de:1521/tqtrazapdb.tq.mx.conti.de; User Id=consulta; Password= solover";
+                            string query = $"SELECT aunitsperbox * aboxperpallet FROM ETGDL.products WHERE MLFB = '{embarque.continentalpartnumber}' ";
+                            using (OracleConnection connection = new OracleConnection(oracleConn))
+                            {
+                                OracleCommand command = new OracleCommand(query, connection);
+                                connection.Open();
+                                OracleDataReader reader = command.ExecuteReader();
 
+                                if (reader.Read())
+                                {
+                                    palletBox = reader.GetInt32(0);
+                                }
+                                reader.Close();
+                            }
+
+                            #endregion
                             Console.WriteLine(index);
                             //TODO: Conectar con traza y mediante el numero de parte obtener el total de piezas por pallet
-                            int pallets = int.Parse(embarque.cantidad) / 48;
+                            // int pallets = int.Parse(embarque.cantidad) / 48;
+
+                            int pallets = int.Parse(embarque.cantidad) / palletBox;
+                            if (pallets == 0)
+                                throw new DataValidationException("Error", string.Format("Error de conexión con Embarques"));
                             embarque.OrderID = orderModel.OrderID;
                             embarque.shipment = orderModel.ShipmentNumber;
                             Console.WriteLine(embarque.continentalpartnumber);
                             embarque.total_pallets = pallets;
                             index++;
                         }
-
-
                         #endregion
 
                         #region CreateShipment
@@ -124,6 +153,7 @@ namespace ValidConti.Controllers
                         mntr.IdOrden = exist.OrderID;
                         mntr.IdPortal = (int)exist.ReaderID;
                         mntr.Embarque = exist.ShipmentNumber;
+                        mntr.Portal = exist.Portal;
                         return RedirectToAction("Monitor", mntr);//Monitor = mntr
                     }
                     else if (exist.Finished == true)
@@ -132,106 +162,128 @@ namespace ValidConti.Controllers
                         ViewBag.Show = false;
                         return View();
                     }
-                    else {
+                    else
+                    {
                         ViewBag.Show = true;
                         orders = _contextOrder.GetQueryOrderComplete(exist.OrderID);
                         ViewBag.OrderDetail = orders.ListOrderDetail;
                         return View(orders);
                     }
-                        
+
                 }
                 else
                     ViewBag.Show = false;
             }
             catch (DataValidationException dex)
             {
+                ViewBag.Show = false;
+                ViewBag.Alert = false;
+                return RedirectToAction("Error");
                 //TODO: Mostrar el mensaje en la pantala principal
-                this.ModelState.AddModelError(dex.PropertyName, dex.ErrorMessage);
+                //this.ModelState.AddModelError(dex.PropertyName, dex.ErrorMessage);
             }
             return View();
         }
 
-
-
-
-        //public IActionResult Shipment(MonitorVModel item)
-        //{
-        //    //TODO: Obtiene los datos de la BD y genera la tabla
-        //    var uno = GetInfoMonitor(item.IdOrden);
-        //    uno.IdOrden = item.IdOrden;
-        //    uno.IdPortal = item.IdPortal;
-        //    uno.Portal = item.Portal;
-        //    uno.Embarque = item.Embarque;
-        //    ViewBag.Onshipment = true;
-        //    ViewData["Message"] = "Validación de Pallets en el Anden n.-";
-
-        //    return View(uno);
-        //}
         public IActionResult Shipment(MonitorVModel item)
         {
-            //TODO: Obtiene los datos de la BD y genera la tabla
-            var uno = GetInfoMonitor(item.IdOrden);
-            uno.IdOrden = item.IdOrden;
-            uno.IdPortal = item.IdPortal;
-            uno.Portal = item.Portal;
-            uno.Embarque = item.Embarque;
-            ViewBag.Onshipment = true;
-            ViewData["Message"] = "Validación de Pallets en el";
+            try
+            {
+                //TODO: Obtiene los datos de la BD y genera la tabla
+                var uno = GetInfoMonitor(item.IdOrden);
+                uno.IdOrden = item.IdOrden;
+                uno.IdPortal = item.IdPortal;
+                uno.Portal = item.Portal;
+                uno.Embarque = item.Embarque;
+                ViewBag.Onshipment = true;
+                ViewData["Message"] = "Validación de Pallets en el";
 
-            return View(uno);
+                return View(uno);
+            }
+            catch (Exception)
+            {
+                return RedirectToAction("Error");
+            }
         }
-
-
-
-
 
 
         public IActionResult FinishedShipment(MonitorVModel shipment)
         {
-            //TODO: Validar si todos los pallets fueron embarcados
-            var finishd = _contextOrderDetail.GetItemByExpression(x => x.embarque.Equals(shipment.Embarque) && x.Leido == false);
-            if (finishd == null)
+            try
             {
-                FinishShipment(shipment.Embarque);
-                return RedirectToAction("Index");
+                //TODO: Validar si todos los pallets fueron embarcados
+                var finishd = _contextOrderDetail.GetItemByExpression(x => x.embarque.Equals(shipment.Embarque) && x.Leido == false);
+                if (finishd == null)
+                {
+                    FinishShipment(shipment.Embarque, shipment.Portal);
+                    return RedirectToAction("Index");
+                }
+                return RedirectToAction("Monitor", shipment);
             }
-            return RedirectToAction("Monitor", shipment);
+            catch (Exception)
+            {
+               
+                return RedirectToAction("Error");
+            }
         }
-        private void FinishShipment(string shipment)
+        private void FinishShipment(string shipment, string portal)
         {
-            var order = _contextOrder.GetOrderEModel(shipment);
-            order.Finished = true;
-            _contextOrder.UpdateItem(order);
+            try
+            {
+                //TODO1: Validar el path
+                string spath = @"c:\temp\"+portal+"Tag\tagCUP.xml";
+                var order = _contextOrder.GetOrderEModel(shipment);
+                order.Finished = true;
+                if (System.IO.File.Exists(spath))
+                {
+                    System.IO.File.Delete(spath);
+                }
+                _contextOrder.UpdateItem(order);
+
+            }
+            catch (Exception ex)
+            {
+
+                throw new DataValidationException("Error", string.Format("Error de conexión con Embarques: {0}", ex.Message));
+            }
         }
         #endregion
 
         #region Monitor
         public IActionResult Monitor(MonitorVModel obj)
         {
-            var result = GetInfoMonitor(obj.IdOrden);
-            //obj.Order = result.Order;
-            obj.OrderDetail = result.OrderDetail;
-            ViewData["Message"] = "Your contact page.";
-            string spath = @"c:\temp\" + obj.Portal + "\\" + obj.Embarque + ".xml";
+            try
+            {
+                var result = GetInfoMonitor(obj.IdOrden);
+                //obj.Order = result.Order;
+                obj.OrderDetail = result.OrderDetail;
+                ViewData["Message"] = "Your contact page.";
+                string spath = @"c:\temp\" + obj.Portal + "\\" + obj.Embarque + ".xml";
 
-            if (System.IO.File.Exists(spath))
-            {
-                System.IO.File.Delete(spath);
-            }
-            //TODO: Obtener el número del embarque 
-            Console.WriteLine(obj);
-            int index = 1;
-            var details = _contextOrderDetail.GetQueryOrderDetail(obj.IdOrden);
-            if (details != null)
-            {
-                //TODO:crear el XML
-                foreach (var item in details)
+                if (System.IO.File.Exists(spath))
                 {
-                    CreateXMLShipment(item, index, obj);
-                    index++;
+                    System.IO.File.Delete(spath);
                 }
+                //TODO: Obtener el número del embarque 
+                Console.WriteLine(obj);
+                int index = 1;
+                var details = _contextOrderDetail.GetQueryOrderDetail(obj.IdOrden);
+                if (details != null)
+                {
+                    //TODO:crear el XML
+                    foreach (var item in details)
+                    {
+                        CreateXMLShipment(item, index, obj);
+                        index++;
+                    }
+                }
+                return View(obj);
             }
-            return View(obj);
+            catch (Exception ex)
+            {
+
+                return RedirectToAction("Error");
+            }
         }
 
         #endregion
@@ -241,87 +293,103 @@ namespace ValidConti.Controllers
         private void CreateXMLShipment(OrderDetailVModel item, int Onshipment, MonitorVModel obj)
         {
 
-            string spath = @"c:\temp\" + obj.Portal + "\\" + obj.Embarque + ".xml";
-            if (!System.IO.File.Exists(spath))
+            try
             {
-                using (XmlWriter writer = XmlWriter.Create(spath))
+                string spath = @"c:\temp\" + obj.Portal + "\\" + obj.Embarque + ".xml";
+                if (!System.IO.File.Exists(spath))
                 {
-                    writer.WriteStartElement("ArrayOfReadTag");
-                    writer.WriteEndElement();
-                    writer.Flush();
+                    using (XmlWriter writer = XmlWriter.Create(spath))
+                    {
+                        writer.WriteStartElement("ArrayOfReadTag");
+                        writer.WriteEndElement();
+                        writer.Flush();
+                    }
                 }
+                #region MyRegion
+                //if (1 == Onshipment)
+                //{
+                //    XDocument docOnshipment = XDocument.Load(spath);
+                //    XElement rootOnshipment = new XElement("ReadTag");
+                //    rootOnshipment.Add(new XElement("onshipment", "false"));
+                //    rootOnshipment.Add(new XElement("shipment", item.embarque));
+                //    docOnshipment.Element("ArrayOfReadTag").Add(rootOnshipment);
+                //    docOnshipment.Save(spath);
+                //} 
+                #endregion
+                XDocument doc = XDocument.Load(spath);
+                XElement root = new XElement("ReadTag");
+                root.Add(new XElement("continentalpartnumber", item.continentalpartnumber));
+                root.Add(new XElement("Tarima", Onshipment));
+                root.Add(new XElement("OrderID", item.OrderID));
+                root.Add(new XElement("Reading", item.Leido));
+                doc.Element("ArrayOfReadTag").Add(root);
+                doc.Save(spath);
             }
+            catch (Exception ex)
+            {
 
-
-            //if (1 == Onshipment)
-            //{
-            //    XDocument docOnshipment = XDocument.Load(spath);
-            //    XElement rootOnshipment = new XElement("ReadTag");
-            //    rootOnshipment.Add(new XElement("onshipment", "false"));
-            //    rootOnshipment.Add(new XElement("shipment", item.embarque));
-            //    docOnshipment.Element("ArrayOfReadTag").Add(rootOnshipment);
-            //    docOnshipment.Save(spath);
-            //}
-            XDocument doc = XDocument.Load(spath);
-            XElement root = new XElement("ReadTag");
-            root.Add(new XElement("continentalpartnumber", item.continentalpartnumber));
-            root.Add(new XElement("Tarima", Onshipment));
-            root.Add(new XElement("OrderID", item.OrderID));
-            root.Add(new XElement("Reading", item.Leido));
-            doc.Element("ArrayOfReadTag").Add(root);
-            doc.Save(spath);
+                throw new DataValidationException("Error", string.Format("Error de conexión con Embarques: {0}", ex.Message));
+            }
         }
 
-
         #endregion
-
-
-
 
         #region Asignar Embarque
         [HttpPost]
         public async Task<IActionResult> SetShipment(OrderVModel item)
         {
-            MonitorVModel mntr = new MonitorVModel();
-            if (item.OrderID > 0)
+            try
             {
-                //Se pone el embarque activo
-                OrderEModel order = _context.Order.FirstOrDefault(x => x.OrderID == item.OrderID);
-                order.OnShipment = true;
-                order.ReaderID = item.ReaderID;
-                var succes = await _contextOrder.UpdateItemAsync(order);
+                MonitorVModel mntr = new MonitorVModel();
+                if (item.OrderID > 0)
+                {
+                    //Se pone el embarque activo
+                    OrderEModel order = _context.Order.FirstOrDefault(x => x.OrderID == item.OrderID);
+                    order.OnShipment = true;
+                    order.ReaderID = item.ReaderID;
+                    var succes = await _contextOrder.UpdateItemAsync(order);
 
-                //Obtengo el nombre de reader asignado
-                ReaderEModel reader = _context.Reader.FirstOrDefault(x => x.ReaderID == item.ReaderID);
-                mntr.Portal = reader.Name;
-                mntr.IdOrden = order.OrderID;
-                mntr.Embarque = order.ShipmentNumber;
-                mntr.IdPortal = (int)order.ReaderID;
-                return RedirectToAction("Monitor", mntr);//Monitor = mntr
+                    //Obtengo el nombre de reader asignado
+                    ReaderEModel reader = _context.Reader.FirstOrDefault(x => x.ReaderID == item.ReaderID);
+                    mntr.Portal = reader.Name;
+                    mntr.IdOrden = order.OrderID;
+                    mntr.Embarque = order.ShipmentNumber;
+                    mntr.IdPortal = (int)order.ReaderID;
+                    string spath = @"c:\temp\" + mntr.Portal +"Tag"+ "\\tagCUP"+ ".xml";
+                    if (System.IO.File.Exists(spath))
+                    {
+                        System.IO.File.Delete(spath);
+                    }
+                    return RedirectToAction("Monitor", mntr);//Monitor = mntr
+                }
+                else
+                    ViewBag.Show = false;
             }
-            else
-                ViewBag.Show = false;
+            catch (Exception)
+            {
+                //TODO: Generar un platilla para errores
+                return RedirectToAction("Error");
+            }
             return null;
         }
         #endregion
 
         public MonitorVModel GetInfoMonitor(int id)
         {
-            MonitorVModel mntr = new MonitorVModel();
-            //var order = _context.Order.FirstOrDefault(x=> x.OrderID == id);
-            //mntr.IdOrden = order.
-            mntr.OrderDetail = _contextOrderDetail.GetQueryOrderDetail(id).ToList();
-            return mntr;
-        }
-        public List<OrderDetailVModel> GetInfoMonitorList(int id)
-        {
-            List<OrderDetailVModel> list = new List<OrderDetailVModel>();
-            //var order = _context.Order.FirstOrDefault(x=> x.OrderID == id);
-            //mntr.IdOrden = order.
-            list = _contextOrderDetail.GetQueryOrderDetail(id).ToList();
-            return list;
-        }
+            try
+            {
+                MonitorVModel mntr = new MonitorVModel();
+                //var order = _context.Order.FirstOrDefault(x=> x.OrderID == id);
+                //mntr.IdOrden = order.
+                mntr.OrderDetail = _contextOrderDetail.GetQueryOrderDetail(id).ToList();
+                return mntr;
+            }
+            catch (Exception ex)
+            {
 
+                throw new DataValidationException("Error", string.Format("Error de conexión con Embarques: {0}", ex.Message));
+            }
+        }
 
         #region Otro
         public IActionResult Privacy()
@@ -336,6 +404,9 @@ namespace ValidConti.Controllers
         }
         #endregion
     }
+
+    #region Modelos
+
     public class ReadTag
     {
         public string continentalpartnumber { get; set; }
@@ -348,6 +419,6 @@ namespace ValidConti.Controllers
         public int Quantity { get; set; }
         public int Success { get; set; }
     }
-
+    #endregion
 
 }

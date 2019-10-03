@@ -30,6 +30,7 @@ namespace Continental.CUP.Repositories.ViewModels
         [Display(Name = "Pallets")]
         public int total_pallets { get; set; }
         public bool Leido { get; set; }
+        public string Portal { get; set; }
 
         //public int OrderDetailID { get; set; }
 
