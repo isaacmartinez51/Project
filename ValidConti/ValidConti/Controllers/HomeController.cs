@@ -16,6 +16,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Newtonsoft.Json;
 using Oracle.ManagedDataAccess.Client;
+using ValidConti.Business;
 using ValidConti.Models;
 
 namespace ValidConti.Controllers
@@ -25,15 +26,17 @@ namespace ValidConti.Controllers
         private ApplicationDbContext _context;
         private IOrderRepository _contextOrder;
         private IOrderDetailRepository _contextOrderDetail;
+        private BusinessPlatform platform;
         public HomeController(ApplicationDbContext context, IOrderRepository contextOrder, IOrderDetailRepository contextOrderDetail)
         {
             _context = context;
             _contextOrder = contextOrder;
             _contextOrderDetail = contextOrderDetail;
+            platform = new BusinessPlatform(_context, _contextOrder);
         }
         #region Get API Embarques Information
         // el parametro debe ser un entero
-        public ShipmentVModel test(string shipment)
+        public ShipmentVModel GetShipment(string shipment)
         {
             try
             {
@@ -44,9 +47,11 @@ namespace ValidConti.Controllers
                 using (var reader = new StreamReader(response.GetResponseStream()))
                 {
                     var json = reader.ReadToEnd();
-                    //string json = Convert.ToString(result);
-
-                    return JsonConvert.DeserializeObject<ShipmentVModel>(json);
+                    ShipmentVModel result = JsonConvert.DeserializeObject<ShipmentVModel>(json);
+                    if (int.Parse(result.cancelado) != 0)
+                        return result;
+                    else
+                        throw new DataValidationException("Error", string.Format("Embarque cancelado"));
                 }
             }
             catch (Exception ex)
@@ -92,14 +97,14 @@ namespace ValidConti.Controllers
                 if (ModelState.IsValid)
                 {
                     #region Fill select
-                    ViewBag.ReaderList = new SelectList(_context.Reader.ToList(), "ReaderID", "Name");
+                    ViewBag.ReaderList = new SelectList(platform.GetPlatforms(), "ReaderID", "Name");
                     #endregion
                     var exist = _contextOrder.GetOrderOnshipment(item.ShipmentNumber);
                     if (exist == null)
                     {
                         #region obtener información de embarques
                         //1.- Obtener el total de piezas
-                        ShipmentVModel result = test(item.ShipmentNumber);
+                        ShipmentVModel result = GetShipment(item.ShipmentNumber);
 
                         int index = 0;
                         // 1.1.-Obtener de traza el total de piezas por tarima del número de parte
@@ -124,7 +129,7 @@ namespace ValidConti.Controllers
                             #endregion
                             Console.WriteLine(index);
                             //TODO: Conectar con traza y mediante el numero de parte obtener el total de piezas por pallet
-                            // int pallets = int.Parse(embarque.cantidad) / 48;
+                            //int pallets = int.Parse(embarque.cantidad) / 48;
 
                             int pallets = int.Parse(embarque.cantidad) / palletBox;
                             if (pallets == 0)
@@ -149,6 +154,7 @@ namespace ValidConti.Controllers
                     }
                     else if (exist.OnShipment == true && exist.Finished == false && exist.ReaderID != null)
                     {
+                        //OrderLigthVModel mntr = new OrderLigthVModel();
                         var mntr = GetInfoMonitor(exist.OrderID);
                         mntr.IdOrden = exist.OrderID;
                         mntr.IdPortal = (int)exist.ReaderID;
@@ -222,7 +228,7 @@ namespace ValidConti.Controllers
             }
             catch (Exception)
             {
-               
+
                 return RedirectToAction("Error");
             }
         }
@@ -231,7 +237,7 @@ namespace ValidConti.Controllers
             try
             {
                 //TODO1: Validar el path
-                string spath = @"c:\temp\"+portal+"Tag\tagCUP.xml";
+                string spath = @"c:\temp\" + portal + "Tag\tagCUP.xml";
                 var order = _contextOrder.GetOrderEModel(shipment);
                 order.Finished = true;
                 if (System.IO.File.Exists(spath))
@@ -249,44 +255,7 @@ namespace ValidConti.Controllers
         }
         #endregion
 
-        #region Monitor
-        public IActionResult Monitor(MonitorVModel obj)
-        {
-            try
-            {
-                var result = GetInfoMonitor(obj.IdOrden);
-                //obj.Order = result.Order;
-                obj.OrderDetail = result.OrderDetail;
-                ViewData["Message"] = "Your contact page.";
-                string spath = @"c:\temp\" + obj.Portal + "\\" + obj.Embarque + ".xml";
 
-                if (System.IO.File.Exists(spath))
-                {
-                    System.IO.File.Delete(spath);
-                }
-                //TODO: Obtener el número del embarque 
-                Console.WriteLine(obj);
-                int index = 1;
-                var details = _contextOrderDetail.GetQueryOrderDetail(obj.IdOrden);
-                if (details != null)
-                {
-                    //TODO:crear el XML
-                    foreach (var item in details)
-                    {
-                        CreateXMLShipment(item, index, obj);
-                        index++;
-                    }
-                }
-                return View(obj);
-            }
-            catch (Exception ex)
-            {
-
-                return RedirectToAction("Error");
-            }
-        }
-
-        #endregion
 
         #region CreateXMLShipment
 
@@ -355,7 +324,7 @@ namespace ValidConti.Controllers
                     mntr.IdOrden = order.OrderID;
                     mntr.Embarque = order.ShipmentNumber;
                     mntr.IdPortal = (int)order.ReaderID;
-                    string spath = @"c:\temp\" + mntr.Portal +"Tag"+ "\\tagCUP"+ ".xml";
+                    string spath = @"c:\temp\" + mntr.Portal + "Tag" + "\\tagCUP" + ".xml";
                     if (System.IO.File.Exists(spath))
                     {
                         System.IO.File.Delete(spath);
@@ -372,6 +341,82 @@ namespace ValidConti.Controllers
             }
             return null;
         }
+        #endregion
+
+        #region Monitor
+        //public IActionResult Monitor(OrderLigthVModel obj)
+        //{
+        //    MonitorVModel list = new MonitorVModel();
+        //    try
+        //    {
+
+        //        var result = GetInfoMonitor(obj.OrderID);
+        //        //obj.Order = result.Order;
+        //        list.OrderDetail = result.OrderDetail;
+        //        ViewData["Message"] = "Your contact page.";
+        //        string spath = @"c:\temp\" + obj.Portal + "\\" + list.Embarque + ".xml";
+
+        //        if (System.IO.File.Exists(spath))
+        //        {
+        //            System.IO.File.Delete(spath);
+        //        }
+        //        //TODO: Obtener el número del embarque 
+        //        Console.WriteLine(obj);
+        //        int index = 1;
+        //        var details = _contextOrderDetail.GetQueryOrderDetail(list.IdOrden);
+        //        if (details != null)
+        //        {
+        //            //TODO:crear el XML
+        //            foreach (var item in details)
+        //            {
+        //                CreateXMLShipment(item, index, list);
+        //                index++;
+        //            }
+        //        }
+        //        return View(list);
+        //    }
+        //    catch (Exception ex)
+        //    {
+
+        //        return RedirectToAction("Error");
+        //    }
+        //}
+        public IActionResult Monitor(MonitorVModel obj)
+        {
+            try
+            {
+                var result = GetInfoMonitor(obj.IdOrden);
+                //obj.Order = result.Order;
+                obj.OrderDetail = result.OrderDetail;
+                ViewData["Message"] = "Your contact page.";
+                string spath = @"c:\temp\" + obj.Portal + "\\" + obj.Embarque + ".xml";
+
+                if (System.IO.File.Exists(spath))
+                {
+                    System.IO.File.Delete(spath);
+                }
+                //TODO: Obtener el número del embarque 
+                Console.WriteLine(obj);
+                int index = 1;
+                var details = _contextOrderDetail.GetQueryOrderDetail(obj.IdOrden);
+                if (details != null)
+                {
+                    //TODO:crear el XML
+                    foreach (var item in details)
+                    {
+                        CreateXMLShipment(item, index, obj);
+                        index++;
+                    }
+                }
+                return View(obj);
+            }
+            catch (Exception ex)
+            {
+
+                return RedirectToAction("Error");
+            }
+        }
+
         #endregion
 
         public MonitorVModel GetInfoMonitor(int id)
@@ -401,6 +446,43 @@ namespace ValidConti.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+
+        #endregion
+
+        #region Cambiar ánden
+
+        public IActionResult Platform(OrderLigthVModel obj)
+        {
+            #region Fill select
+            ViewBag.ReaderList = new SelectList(platform.GetPlatforms(), "ReaderID", "Name");
+            #endregion
+            return View(obj);
+        }
+        [HttpPost]
+        public async Task<IActionResult> PlatformChange(OrderLigthVModel item)
+        {
+            try
+            {
+                var uno = platform.GetOrderByIdOrder(item.OrderID);
+                if (uno.ReaderID != item.ReaderID)
+                {
+                    var result = await platform.PutPlatform(item);
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    ViewBag.Alert = "Seleccionaste el mismo anden";
+                    ViewBag.ReaderList = new SelectList(platform.GetPlatforms(), "ReaderID", "Name");
+                    return View("Platform", item);
+                }
+            }
+            catch (Exception)
+            {
+                //TODO: Generar un platilla para errores
+                return RedirectToAction("Error");
+            }
         }
         #endregion
     }

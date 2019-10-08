@@ -213,11 +213,85 @@ namespace Continental.CUP.Repositories.Implementations
                 throw new DataValidationException("Error", string.Format("No fué posible crear el embarque: {0}", ex.Message));
             }
         }
+
+        public OrderLigthVModel GetOrderById(int idOrder)
+        {
+            try
+            {
+
+                OrderLigthVModel order = (from orders in ReadsItems(x => x.OrderID == idOrder && x.OnShipment == true)
+                                     join reader in Context.Reader on orders.ReaderID equals reader.ReaderID
+                                     select new
+                                     {
+                                         orders,
+                                         reader
+                                     }).Select(x => new OrderLigthVModel
+                                     {
+                                         OrderID = x.orders.OrderID,
+                                         ReaderID = x.orders.ReaderID,
+                                         Portal = x.reader.Name
+                                     }).FirstOrDefault();
+
+                return order;
+            }
+            catch (Exception ex)
+            {
+                throw new DataValidationException("Error", string.Format("No fué posible crear el embarque: {0}", ex.Message));
+            }
+        }
+
         public OrderEModel GetOrderEModel(string embarque)
         {
             try
             {
                 OrderEModel order = ReadsItems(x => x.ShipmentNumber == embarque && x.OnShipment == true).FirstOrDefault();
+                return order;
+            }
+            catch (Exception ex)
+            {
+                throw new DataValidationException("Error", string.Format("No fué posible crear el embarque: {0}", ex.Message));
+            }
+        }
+
+        public async Task<OrderEModel> PutOrderEModel(OrderLigthVModel model)
+        {
+            try
+            {
+                OrderEModel order = await ReadsItems(x => x.OrderID == model.OrderID).FirstOrDefaultAsync();
+                order.ReaderID = model.ReaderID;
+                order.Date = DateTime.Now;
+                Context.Order.Update(order);
+                return order;
+            }
+            catch (Exception ex)
+            {
+                throw new DataValidationException("Error", string.Format("No fué posible crear el embarque: {0}", ex.Message));
+            }
+        }
+
+        public OrderVModel GetOrderByOrderId(int id)
+        {
+            try
+            {
+
+                OrderVModel order = (from orders in ReadsItems(x => x.OrderID == id)
+                                     join reader in Context.Reader on orders.ReaderID equals reader.ReaderID
+                                     select new
+                                     {
+                                         orders,
+                                         reader
+                                     }).Select(x => new OrderVModel
+                                     {
+                                         OrderID = x.orders.OrderID,
+                                         ReaderID = x.orders.ReaderID,
+                                         Number = x.orders.Number,
+                                         ShipmentNumber = x.orders.ShipmentNumber,
+                                         OnShipment = x.orders.OnShipment,
+                                         Date = x.orders.Date,
+                                         Finished = x.orders.Finished,
+                                         Portal = x.reader.Name
+                                     }).FirstOrDefault();
+
                 return order;
             }
             catch (Exception ex)

@@ -1,0 +1,55 @@
+﻿@using Continental.CUP.Repositories.ViewModels
+@model Continental.CUP.Repositories.ViewModels.OrderLigthVModel
+@{
+//ViewData["Title"] = "Platform Change";
+//var order = (OrderLigthVModel)ViewData["OrderDetails"];
+
+}
+
+
+<h2>Platform- @Model.Portal</h2>
+
+<form id="" action="/Home/PlatformChange" class="smart-form client-form" method="post">
+    <fieldset>
+        <section class="DropDown">
+            <br />
+
+            @Html.DropDownList("ReaderID", (IEnumerable<SelectListItem>)ViewBag.ReaderList, "Seleccione Anden")
+            <input type="hidden" asp-for="ReaderID" class="form-control" />
+            <input type="hidden" asp-for="OrderID" class="form-control" />
+            <input type="hidden" asp-for="Portal" class="form-control" />
+
+
+            <button id="bot" disabled="disabled" type="submit" class="btn btn-success">
+                Asignar embarque
+            </button>
+        </section>
+
+
+    </fieldset>
+</form>
+
+@if (ViewBag.Alert != null)
+{
+    <script type="text/javascript">
+        window.onload = function ()
+        {
+            alert ("@ViewBag.Alert")
+        }
+    </script>
+}
+
+<script type="text/javascript" src="~/js/libs/jquery-3.2.1.js"></script>
+<script>
+    $(document).ready(function () {
+        console.log("Entre");
+        $("#ReaderID").change(function () {
+            if ($("#ReaderID").val().length > 0) {
+                $("#bot").attr("disabled", false)
+            } else {
+                $("#bot").attr("disabled", true)
+            }
+        })
+    });
+
+</script>

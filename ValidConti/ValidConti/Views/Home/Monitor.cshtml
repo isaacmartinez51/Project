@@ -1,7 +1,12 @@
 ﻿@model Continental.CUP.Repositories.ViewModels.MonitorVModel
+@using Continental.CUP.Repositories.ViewModels
 @{
     ViewData["Title"] = "Contact";
     Layout = "~/Views/Shared/_LayoutMonitor.cshtml";
+    OrderLigthVModel model = new OrderLigthVModel();
+    model.OrderID = Model.IdOrden;
+    model.ReaderID = Model.IdPortal;
+    model.Portal = Model.Portal;
 }
 
 <!-- <h2>@ViewData["Title"]</h2>
@@ -21,17 +26,17 @@
 
     .hero-container {
         display: grid;
-        background:#BDBDBD; 
+        background: #BDBDBD;
         grid-template-columns: 1fr;
         grid-template-areas: "header" "validPallet" "footer";
         padding: 10px 50px;
         min-height: 900px;
     }
+
     .header {
         grid-area: header;
         background: #F39C12;
         padding: 10px 10px;
-        
     }
 
     .footer {
@@ -57,7 +62,7 @@
             align-items: center;
         }
 
-   
+
 
     .shipmentTable {
         grid-area: shipmentTable;
@@ -70,16 +75,16 @@
     }
 </style>
 
-
 <div class=" hero">
     <div class="hero-container">
         <header class="header">
-            Detalles del Embarque n.- <strong>@Model.Embarque</strong>
+            Detalles del Embarque n.- <strong>@Model.Embarque - @Model.IdPortal</strong>
             <input type="button" value="Información embarque" onclick="window.location='@Url.Action("Shipment","Home", @Model)'" />
             <input type="button" value="Terminar embarque" onclick="window.location='@Url.Action("FinishedShipment","Home", @Model)'" />
+            <input type="button" value="Cambiar anden" onclick="window.location='@Url.Action("Platform","Home", model)'" />
         </header>
-        <input type="text" value="@Model.Portal" id="portal"  disabled="disabled" />
-        <input type="text" value="@Model.Embarque" id="embarque"  disabled="disabled" />
+        <input type="text" value="@Model.Portal" id="portal" disabled="disabled" />
+        <input type="text" value="@Model.Embarque" id="embarque" disabled="disabled" />
         <div class="validPallet" id="dataShip">
 
             <p>

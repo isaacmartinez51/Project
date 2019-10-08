@@ -60,6 +60,7 @@ namespace EtiquteContinental.Controllers
             {
                 string zplBase = appSettings.ZPL;
                 StringBuilder zpl = new StringBuilder(zplBase);
+                zpl.Replace("*RFID*", Mlfb16char(label.MLFB));
                 zpl.Replace("*tittle*", "Blackflush de Producto Terminado");
                 zpl.Replace("*em*", "Etiqueta Master");
                 zpl.Replace("*mlfb*", label.MLFB);
@@ -72,6 +73,25 @@ namespace EtiquteContinental.Controllers
                 return zpl.ToString();
             }
             return null;
+        }
+
+        private string Mlfb16char(string mlfb)
+        {
+            int total = mlfb.Length;
+            if (total < 16)
+            {
+
+                StringBuilder sbMlfb = new StringBuilder(mlfb);
+
+                for (int i = total; i < 16; i++)
+                {
+                    sbMlfb.Insert(i, '@');
+                }
+
+                return sbMlfb.ToString();
+            }
+            else
+                return mlfb;
         }
 
         private bool printLabel(AppSettings appSettings, string zpl)

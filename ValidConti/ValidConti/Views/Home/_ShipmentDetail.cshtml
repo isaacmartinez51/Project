@@ -1,44 +1,50 @@
-﻿@*@model Continental.CUP.Business.ViewModel.Base.OrderModel*@
-@*@model IEnumerable<Continental.CUP.Business.ViewModel.Base.OrderDetailModel>*@
+﻿@model Continental.CUP.Repositories.ViewModels.OrderVModel
 
-@model Continental.CUP.Repositories.ViewModels.OrderVModel
 <style>
     .DropDown {
-    padding-top:10px;
-    padding-bottom: 10px;
+        padding-top: 10px;
+        padding-bottom: 10px;
     }
+
     #ReaderID {
         width: 217px;
         height: 32px;
     }
+
     #bot {
         width: 217px;
         margin-left: 15px;
     }
+
     .index {
         padding-top: 20px;
     }
-    .tableStyle{
+
+    .tableStyle {
         background-color: white;
         text-align: left;
-        width: 100%; 
+        width: 100%;
     }
-    th,td{
+
+    th, td {
         padding: 20px;
     }
-    thead{
+
+    thead {
         background-color: #246355;
         border-bottom: solid 5px;
         color: white;
         padding: 15;
         min-height: 100px;
     }
-    tr:nth-child(even){
+
+    tr:nth-child(even) {
         background-color: #ddd;
     }
-    tr:hover td{
+
+    tr:hover td {
         background-color: #369681;
-        color:white;
+        color: white;
     }
 </style>
 <div class="col-md-6 center-block index">
@@ -91,17 +97,15 @@
                     <br />
                     @Html.DropDownList("ReaderID", (IEnumerable<SelectListItem>)ViewBag.ReaderList, "Seleccione Anden")
                     <input type="hidden" asp-for="OrderID" class="form-control" />
-                   
+
                     <button id="bot" disabled="disabled" type="submit" class="btn btn-success">
                         Asignar embarque
                     </button>
                 </section>
-                
+
 
             </fieldset>
-            <footer>
-               
-            </footer>
+            <footer></footer>
 
 
         </form>

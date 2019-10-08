@@ -46,14 +46,29 @@ namespace Continental.CUP.Repositories.Interfaces
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="embarque"></param>
+        /// <param name="embarque"></param>  GetOrderById
         /// <returns></returns>
         OrderVModel GetOrderOnshipment(string embarque);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="embarque"></param>  GetOrderById
+        /// <returns></returns>
+        OrderLigthVModel GetOrderById(int idOrder);
         /// <summary>
         /// 
         /// </summary>
         /// <param name="embarque"></param>
         /// <returns></returns>
         OrderEModel GetOrderEModel(string embarque);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        Task<OrderEModel> PutOrderEModel(OrderLigthVModel model);
+
+
+        OrderVModel GetOrderByOrderId(int id);
     }
 }
