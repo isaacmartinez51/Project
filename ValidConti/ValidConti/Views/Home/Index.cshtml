@@ -7,8 +7,8 @@
         <script type="text/javascript">
             var shipment = '@ViewBag.shipment';
             alert('@ViewBag.shipment');
-            var elem = document.getElementById("Embarque");
-            console.log(elem);
+            //var elem = document.getElementById("Embarque");
+            //console.log(elem);
         </script>
 
     }
@@ -46,8 +46,8 @@
                             Ingresa el número del Embarque.
                             <section>
                                 <label id="nembarque" class="label">No.-Embarque</label>
+                                <i class="icon-append glyphicon glyphicon-inbox"></i>
                                 <label class="input" id="iptEmbarque">
-                                    <i class="icon-append glyphicon glyphicon-inbox"></i>
                                     <input id="Embarque" asp-for="ShipmentNumber" class="form-control" required />
                                     <span asp-validation-for="ShipmentNumber" class="text-danger"></span>
                                     <b class="tooltip tooltip-top-right"><i class="fa fa-user txt-color-teal"></i> El número del embarque es requerido.</b>

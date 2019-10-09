@@ -78,13 +78,13 @@
 <div class=" hero">
     <div class="hero-container">
         <header class="header">
-            Detalles del Embarque n.- <strong>@Model.Embarque - @Model.IdPortal</strong>
-            <input type="button" value="Información embarque" onclick="window.location='@Url.Action("Shipment","Home", @Model)'" />
-            <input type="button" value="Terminar embarque" onclick="window.location='@Url.Action("FinishedShipment","Home", @Model)'" />
-            <input type="button" value="Cambiar anden" onclick="window.location='@Url.Action("Platform","Home", model)'" />
+            Detalles del Embarque n.- <strong>@Model.Embarque</strong>
+            <input type="button" class="btn btn-default" value="Información embarque" onclick="window.location='@Url.Action("Shipment","Home", @Model)'" />
+            <input type="button" class="btn btn-default" value="Terminar embarque" onclick="window.location='@Url.Action("FinishedShipment","Home", @Model)'" />
+            <input type="button" class="btn btn-default" value="Cambiar anden" onclick="window.location='@Url.Action("Platform","Home", model)'" />
         </header>
-        <input type="text" value="@Model.Portal" id="portal" disabled="disabled" />
-        <input type="text" value="@Model.Embarque" id="embarque" disabled="disabled" />
+        <input type="text" value="@Model.Portal" id="portal" hidden disabled="disabled" />
+        <input type="text" value="@Model.Embarque" id="embarque" hidden disabled="disabled" />
         <div class="validPallet" id="dataShip">
 
             <p>

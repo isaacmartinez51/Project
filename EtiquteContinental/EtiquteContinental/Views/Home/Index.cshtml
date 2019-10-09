@@ -2,10 +2,18 @@
 @{
     ViewData["Title"] = "Home Page";
 }
+<style>
+    .index {
+        padding-top: 20px;
+    }
 
+    #nembarque {
+        color: black;
+    }
+</style>
 <div class="container">
     <div class="row center-block">
-        <div class="col-md-4 center-block">
+        <div class="col-md-4 center-block index">
             <div class="well no-padding">
                 <form id="" class="smart-form client-form" method="post">
                     <header>
@@ -14,16 +22,15 @@
 
                     <fieldset>
                         Escanea el número de serie
+                        <i class="icon-append glyphicon glyphicon-barcode"></i>
                         <section>
-                            <label asp-for="Serial" class="label"></label>
+                            <label id="nembarque" asp-for="Serial" class="label"></label>
                             <label class="input">
-                                <i class="icon-append glyphicon glyphicon-barcode"></i>
                                 <input asp-for="Serial" class="form-control" />
                                 <span asp-validation-for="Serial" class="text-danger"></span>
                                 <b class="tooltip tooltip-top-right"><i class="fa fa-user txt-color-teal"></i> El serial es requerido.</b>
                             </label>
                         </section>
-
                     </fieldset>
                     <footer>
                         <button type="submit" class="btn btn-primary">

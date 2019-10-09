@@ -154,7 +154,6 @@ namespace ValidConti.Controllers
                     }
                     else if (exist.OnShipment == true && exist.Finished == false && exist.ReaderID != null)
                     {
-                        //OrderLigthVModel mntr = new OrderLigthVModel();
                         var mntr = GetInfoMonitor(exist.OrderID);
                         mntr.IdOrden = exist.OrderID;
                         mntr.IdPortal = (int)exist.ReaderID;
@@ -164,8 +163,9 @@ namespace ValidConti.Controllers
                     }
                     else if (exist.Finished == true)
                     {
-                        ViewBag.shipment = "Este embarque esta terminado";
+                        ViewBag.shipment = "El embarque n.-"+ item.ShipmentNumber + " ya esta terminado.";
                         ViewBag.Show = false;
+                        ModelState.Clear();
                         return View();
                     }
                     else
@@ -184,9 +184,7 @@ namespace ValidConti.Controllers
             {
                 ViewBag.Show = false;
                 ViewBag.Alert = false;
-                return RedirectToAction("Error");
-                //TODO: Mostrar el mensaje en la pantala principal
-                //this.ModelState.AddModelError(dex.PropertyName, dex.ErrorMessage);
+                return RedirectToAction("Error", dex.ErrorMessage);
             }
             return View();
         }
@@ -202,7 +200,7 @@ namespace ValidConti.Controllers
                 uno.Portal = item.Portal;
                 uno.Embarque = item.Embarque;
                 ViewBag.Onshipment = true;
-                ViewData["Message"] = "Validación de Pallets en el";
+                ViewData["Message"] = "Validación de Pallets en el ";
 
                 return View(uno);
             }
