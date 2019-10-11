@@ -1,0 +1,9 @@
+Hosting environment: Production
+Content root path: C:\inetpub\wwwroot\ValidConti
+Now listening on: http://127.0.0.1:41032
+Application started. Press Ctrl+C to shut down.
+warnwarn: Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware[3]
+      Failed to determine the https port for redirect.
+: Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware[3]
+      Failed to determine the https port for redirect.
+Application is shutting down...

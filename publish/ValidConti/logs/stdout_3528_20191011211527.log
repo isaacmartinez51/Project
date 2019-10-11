@@ -1,0 +1,13 @@
+Hosting environment: Production
+Content root path: C:\inetpub\wwwroot\ValidConti
+Now listening on: http://127.0.0.1:42837
+Application started. Press Ctrl+C to shut down.
+warnwarn: Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware[3]
+      Failed to determine the https port for redirect.
+: Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware[3]
+      Failed to determine the https port for redirect.
+Continental.CUP.Repositories.ViewModels.MonitorVModel
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [r].[ReaderID], [r].[IpAddress], [r].[Name], [r].[ReaderKindID], [r].[Serial]
+      FROM [Reader] AS [r]

@@ -1,0 +1,32 @@
+warn: Microsoft.AspNetCore.DataProtection.Repositories.EphemeralXmlRepository[50]
+      Using an in-memory repository. Keys will not be persisted to storage.
+warn: Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager[59]
+      Neither user profile nor HKLM registry available. Using an ephemeral key repository. Protected data will be unavailable when application exits.
+warn: Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager[35]
+      No XML encryptor configured. Key {ed64b58b-97fc-4b78-8dd4-5e1fc0e593b6} may be persisted to storage in unencrypted form.
+Hosting environment: Production
+Content root path: C:\inetpub\wwwroot\ValidConti
+Now listening on: http://127.0.0.1:43537
+Application started. Press Ctrl+C to shut down.
+warnwarn: Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware[3]
+      Failed to determine the https port for redirect.
+: Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware[3]
+      Failed to determine the https port for redirect.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (10ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [r].[ReaderID], [r].[IpAddress], [r].[Name], [r].[ReaderKindID], [r].[Serial]
+      FROM [Reader] AS [r]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [r].[ReaderID], [r].[IpAddress], [r].[Name], [r].[ReaderKindID], [r].[Serial]
+      FROM [Reader] AS [r]
+Continental.CUP.Repositories.ViewModels.MonitorVModel
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [r].[ReaderID], [r].[IpAddress], [r].[Name], [r].[ReaderKindID], [r].[Serial]
+      FROM [Reader] AS [r]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [r].[ReaderID], [r].[IpAddress], [r].[Name], [r].[ReaderKindID], [r].[Serial]
+      FROM [Reader] AS [r]
+Application is shutting down...

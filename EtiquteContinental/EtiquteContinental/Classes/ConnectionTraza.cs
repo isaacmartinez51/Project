@@ -14,14 +14,11 @@ namespace EtiquteContinental.Classes
         public static SerialPrintModel GetInformationSerial(AppSettings appSettings, string serial)
         {
             SerialPrintModel label = new SerialPrintModel();
-            //string queryString = "SELECT * FROM access$ where d_obj# = 1753";
-            //string sql = "SELECT * FROM boxes";
-            //string oracleConn = appSettings.Traza_Connection;
 
             string oracleConn = "Data Source= tqdb002x.tq.mx.conti.de:1521/tqtrazapdb.tq.mx.conti.de; User Id=consulta; Password= solover";
 
             #region Connection Traza
-            string query = $"Select MLFB, Serial, ordernumber, datetimestamp from ETGDL.boxes WHERE SERIAL = '{serial}'"; //9974S432B1136138
+            string query = $"SELECT MLFB, Serial, ordernumber, datetimestamp from ETGDL.boxes WHERE SERIAL = '{serial}'"; //9974S432B1136138
             string query2 = $"SELECT aunitsperbox * aboxperpallet FROM ETGDL.products WHERE MLFB = (Select MLFB from ETGDL.boxes WHERE SERIAL = '{serial}')";
             using (OracleConnection connection = new OracleConnection(oracleConn))
             {
@@ -54,6 +51,8 @@ namespace EtiquteContinental.Classes
             }
 
             #endregion
+
+
             #region Cambiar por la version en el server de traza
             //using (OracleConnection connection = new OracleConnection(oracleConn))
             //{

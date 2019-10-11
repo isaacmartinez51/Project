@@ -1,0 +1,17 @@
+Hosting environment: Production
+Content root path: C:\inetpub\wwwroot\ValidConti
+Now listening on: http://127.0.0.1:35073
+Application started. Press Ctrl+C to shut down.
+warnwarn: Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware[3]
+      Failed to determine the https port for redirect.
+: Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware[3]
+      Failed to determine the https port for redirect.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [r].[ReaderID], [r].[IpAddress], [r].[Name], [r].[ReaderKindID], [r].[Serial]
+      FROM [Reader] AS [r]
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://127.0.0.1:35073/iisintegration  0
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 2.5843ms 202 
+Application is shutting down...

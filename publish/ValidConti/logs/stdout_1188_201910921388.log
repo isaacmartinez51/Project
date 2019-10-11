@@ -1,0 +1,1761 @@
+warn: Microsoft.AspNetCore.DataProtection.Repositories.EphemeralXmlRepository[50]
+      Using an in-memory repository. Keys will not be persisted to storage.
+warn: Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager[59]
+      Neither user profile nor HKLM registry available. Using an ephemeral key repository. Protected data will be unavailable when application exits.
+warn: Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager[35]
+      No XML encryptor configured. Key {c479a115-e3d4-42a1-af7f-7adbad84f09a} may be persisted to storage in unencrypted form.
+Hosting environment: Production
+Content root path: C:\inetpub\wwwroot\ValidConti
+Now listening on: http://127.0.0.1:8866
+Application started. Press Ctrl+C to shut down.
+warn: Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware[3]
+      Failed to determine the https port for redirect.
+warn: Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware[3]
+      Failed to determine the https port for redirect.
+fail: Microsoft.AspNetCore.Antiforgery.Internal.DefaultAntiforgery[7]
+      An exception was thrown while deserializing the token.
+Microsoft.AspNetCore.Antiforgery.AntiforgeryValidationException: The antiforgery token could not be decrypted. ---> System.Security.Cryptography.CryptographicException: The key {0c3bd46e-7003-4363-a891-2c853ad294b5} was not found in the key ring.
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.UnprotectCore(Byte[] protectedData, Boolean allowOperationsOnRevokedKeys, UnprotectStatus& status)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.DangerousUnprotect(Byte[] protectedData, Boolean ignoreRevocationErrors, Boolean& requiresMigration, Boolean& wasRevoked)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.Unprotect(Byte[] protectedData)
+   at Microsoft.AspNetCore.Antiforgery.Internal.DefaultAntiforgeryTokenSerializer.Deserialize(String serializedToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Antiforgery.Internal.DefaultAntiforgeryTokenSerializer.Deserialize(String serializedToken)
+   at Microsoft.AspNetCore.Antiforgery.Internal.DefaultAntiforgery.GetCookieTokenDoesNotThrow(HttpContext httpContext)
+fail: Microsoft.AspNetCore.Antiforgery.Internal.DefaultAntiforgery[7]
+      An exception was thrown while deserializing the token.
+Microsoft.AspNetCore.Antiforgery.AntiforgeryValidationException: The antiforgery token could not be decrypted. ---> System.Security.Cryptography.CryptographicException: The key {0c3bd46e-7003-4363-a891-2c853ad294b5} was not found in the key ring.
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.UnprotectCore(Byte[] protectedData, Boolean allowOperationsOnRevokedKeys, UnprotectStatus& status)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.DangerousUnprotect(Byte[] protectedData, Boolean ignoreRevocationErrors, Boolean& requiresMigration, Boolean& wasRevoked)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.Unprotect(Byte[] protectedData)
+   at Microsoft.AspNetCore.Antiforgery.Internal.DefaultAntiforgeryTokenSerializer.Deserialize(String serializedToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Antiforgery.Internal.DefaultAntiforgeryTokenSerializer.Deserialize(String serializedToken)
+   at Microsoft.AspNetCore.Antiforgery.Internal.DefaultAntiforgery.GetCookieTokenDoesNotThrow(HttpContext httpContext)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (10ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [r].[ReaderID], [r].[IpAddress], [r].[Name], [r].[ReaderKindID], [r].[Serial]
+      FROM [Reader] AS [r]
+Continental.CUP.Repositories.ViewModels.MonitorVModel
+Continental.CUP.Repositories.ViewModels.MonitorVModel
+Continental.CUP.Repositories.ViewModels.MonitorVModel
+Continental.CUP.Repositories.ViewModels.MonitorVModel
+Continental.CUP.Repositories.ViewModels.MonitorVModel
+Continental.CUP.Repositories.ViewModels.MonitorVModel
+Continental.CUP.Repositories.ViewModels.MonitorVModel
+Continental.CUP.Repositories.ViewModels.MonitorVModel
+Continental.CUP.Repositories.ViewModels.MonitorVModel
+Continental.CUP.Repositories.ViewModels.MonitorVModel
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [r].[ReaderID], [r].[IpAddress], [r].[Name], [r].[ReaderKindID], [r].[Serial]
+      FROM [Reader] AS [r]
+Continental.CUP.Repositories.ViewModels.MonitorVModel
+Continental.CUP.Repositories.ViewModels.MonitorVModel
+Continental.CUP.Repositories.ViewModels.MonitorVModel
+Continental.CUP.Repositories.ViewModels.MonitorVModel
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 2.56ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725206097 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4862ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 169.3911ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725206287 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.5197ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 187.3916ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725206493 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4696ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 189.0671ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725206701 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4466ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 170.9423ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725206891 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4586ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 187.6889ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725207098 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4971ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 172.1538ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725207288 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4756ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 187.8948ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725207496 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.2669ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 168.485ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725207681 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4699ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 196.4134ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725207893 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.5003ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 172.4836ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725208085 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4572ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 189.2426ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725208293 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4551ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 188.9979ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725208500 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4632ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 172.0574ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725208692 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.6426ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 189.5222ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725208901 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4911ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 171.336ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725209090 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.454ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 188.8683ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725209299 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.5808ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 170.3067ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725209488 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4964ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 186.547ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725209695 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4865ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 170.6785ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725209885 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.6475ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 187.6222ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725210092 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4604ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 185.8132ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725210298 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.2641ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 170.0609ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725210482 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4911ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 195.5412ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725210699 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4604ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 165.8082ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725210881 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4894ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 192.482ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725211094 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.335ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 185.2006ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725211297 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.5857ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 173.4204ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725211487 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4668ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 188.0392ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725211694 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.5155ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 172.1139ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725211883 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.5201ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 192.2941ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725212092 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.549ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 187.917ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725212293 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.5275ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 179.8479ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725212491 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.5172ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 187.684ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725212699 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4579ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 170.7933ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725212898 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4653ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 177.0934ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725213093 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4752ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 172.146ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725213283 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4692ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 188.6045ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725213491 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.602ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 186.1324ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725213696 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4759ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 171.7509ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725213887 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4615ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 187.5021ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725214094 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4597ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 170.6482ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725214285 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4498ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 186.7744ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725214492 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4537ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 185.3885ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725214697 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4519ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 172.157ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725214892 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4399ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 183.7342ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725215096 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4689ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 169.4398ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725215283 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4784ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 187.9583ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725215491 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4904ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 186.8132ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725215697 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4985ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 170.08ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725215887 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.442ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 186.4693ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725216093 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4632ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 187.5523ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725216300 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4555ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 172.212ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725216491 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4999ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 187.9033ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725216698 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4879ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 170.705ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725216883 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4343ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 196.1874ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725217099 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.2669ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 163.3541ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725217275 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4848ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 200.2986ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725217490 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.459ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 188.69ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725217698 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4297ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 171.6594ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725217889 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4399ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 187.2285ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725218095 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4505ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 172.4846ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725218288 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4675ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 185.6151ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725218493 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4544ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 188.7966ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725218701 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.5914ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 171.5945ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725218894 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4579ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 186.2988ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725219099 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4597ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 172.1729ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725219291 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4498ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 187.6942ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725219497 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4763ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 173.4077ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725219690 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.3661ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 187.4898ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725219896 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.5882ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 173.1231ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725220090 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.5141ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 186.1791ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725220295 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.5028ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 186.9223ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725220502 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.5833ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 172.2438ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725220693 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.2697ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 184.6325ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725220894 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.6038ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 176.2939ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725221090 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4547ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 188.1317ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725221297 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.2909ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 169.8318ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725221482 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.2535ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 189.2825ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725221682 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.2658ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 197.77ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725221889 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.2531ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 180.7734ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725222077 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.2846ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 196.5151ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725222283 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.2884ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 197.3707ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725222491 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.2588ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 177.0185ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725222679 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.256ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 195.4339ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725222883 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.2591ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 195.9809ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725223089 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.2616ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 178.4945ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725223277 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.2683ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 197.3375ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725223482 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4569ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 199.6962ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725223700 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.5038ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 170.4275ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725223890 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.5854ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 187.3733ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725224097 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.483ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 172.5733ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725224289 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4505ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 188.4453ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725224497 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.5081ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 173.9483ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725224690 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.7023ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 188.9096ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725224899 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4749ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 171.6153ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725225089 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4456ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 187.5ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725225296 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.721ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 173.5012ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725225488 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4678ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 188.7624ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725225696 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4897ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 171.4515ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725225883 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.5155ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 194.4819ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725226095 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4936ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 171.5493ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725226286 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.454ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 188.3284ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725226493 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.5275ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 187.3369ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725226699 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4682ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 172.776ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725226892 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.454ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 186.4485ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725227097 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4731ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 173.6375ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725227291 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.3432ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 183.3182ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725227485 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4046ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 184.9344ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725227688 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4671ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 188.1939ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725227895 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4622ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 186.5975ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725228102 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4957ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 168.2492ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725228290 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.5176ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 187.7694ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725228496 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.5377ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 170.7308ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725228687 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.5918ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 187.1236ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725228886 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4731ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 196.334ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725229098 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4876ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 172.812ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725229289 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.5723ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 186.7769ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725229495 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4802ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 171.8579ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725229687 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4985ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 184.5272ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725229891 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4713ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 187.7193ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725230097 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.447ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 171.5722ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725230288 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.46ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 187.7398ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725230494 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4763ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 171.0164ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725230685 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.5187ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 186.9156ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725230891 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.5127ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 186.6448ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725231099 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4742ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 169.8307ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725231288 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4809ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 188.4771ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725231495 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4653ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 170.5733ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725231685 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4562ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 187.6296ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725231891 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4943ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 187.2292ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725232105 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.6225ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 166.1577ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725232290 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4668ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 187.6395ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725232496 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4456ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 171.0189ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725232690 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.5169ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 182.6749ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725232893 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.5303ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 186.1321ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725233100 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4922ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 169.8791ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725233290 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4717ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 186.7108ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725233496 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.6221ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 172.3205ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725233687 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 2.4936ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 192.5208ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725233898 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4131ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 181.6124ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725234095 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4812ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 176.349ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725234289 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.847ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 188.2412ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725234496 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 30.1815ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 703.214ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725235259 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.8993ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 144.2749ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725235447 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.3315ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 89.3076ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725235558 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 2.7439ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 171.1255ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725235752 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 1.3329ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 150.3687ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725235932 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.9883ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 140.1654ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725236104 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.3954ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 135.8957ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725236256 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4124ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 164.7683ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725236431 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 6.627ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 186.309ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725236636 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4819ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 147.5986ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725236804 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.5021ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 188.7592ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725237012 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4406ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 186.3549ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725237218 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4424ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 170.8674ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725237408 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 1.2012ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 189.518ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725237616 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.465ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 170.3727ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725237808 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4685ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 186.4778ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725238013 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4625ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 187.9209ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725238220 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.5035ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 171.8734ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725238412 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.5296ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 187.8344ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725238620 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4749ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 169.8184ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725238810 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4929ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 184.9714ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725239015 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.5102ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 170.133ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725239204 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4583ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 188.7525ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725239412 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4547ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 188.6236ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725239620 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4901ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 172.7894ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725239812 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.5109ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 189.5311ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725240021 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4611ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 173.2586ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725240215 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4957ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 179.9468ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725240413 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.7002ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 185.6088ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725240622 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4678ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 163.0843ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725240804 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.6422ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 189.5805ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725241014 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.5045ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 171.4483ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725241205 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4625ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 186.9478ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725241411 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.46ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 187.8694ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725241618 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4509ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 173.038ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725241810 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4208ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 188.6091ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725242023 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.5194ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 166.1768ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725242208 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4374ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 193.7115ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725242458 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4604ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 140.8385ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725242619 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.5268ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 171.9306ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725242809 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4971ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 191.1041ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725243020 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4802ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 171.3247ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725243210 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.5974ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 188.203ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725243417 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4622ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 172.7512ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725243609 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4371ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 181.7713ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725243809 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4883ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 188.9569ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725244017 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.3177ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 165.9095ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725244196 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.3968ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 196.7669ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725244409 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4731ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 190.6529ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725244614 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4897ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 178.1163ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725244811 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4382ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 186.3708ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725245017 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.5822ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 171.8007ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725245208 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.5338ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 186.3072ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725245417 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4886ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 167.598ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725245603 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4555ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 187.1317ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725245809 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4971ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 187.7942ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725246016 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4692ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 171.4709ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725246207 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4477ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 186.9538ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725246412 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.501ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 187.6589ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725246619 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4226ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 167.418ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725246801 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4971ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 194.9812ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725247014 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4904ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 170.6404ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725247204 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.2616ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 185.696ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725247405 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.429ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 195.8467ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725247621 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4516ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 168.1718ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725247809 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4668ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 186.5615ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725248015 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4848ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 170.5581ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725248205 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4509ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 187.124ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725248411 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4562ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 187.1331ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw&_=1570725248617 text/plain;charset=UTF-8 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://localhost:90/shipmentHub?id=oE7dJvdRhhnuPweqiPe9rw text/plain;charset=UTF-8 93
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4505ms 200 text/plain
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 170.4215ms 200 application/octet-stream
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 POST http://127.0.0.1:8866/iisintegration  0
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 0.4124ms 202 
+Application is shutting down...
