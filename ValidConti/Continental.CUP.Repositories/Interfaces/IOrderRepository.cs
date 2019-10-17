@@ -11,6 +11,21 @@ namespace Continental.CUP.Repositories.Interfaces
 {
     public interface IOrderRepository : IGenericRepository<OrderEModel>
     {
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Embarque"></param>
+        /// <returns></returns>
+        Task<OrderVModel> GetShipmentV2(string Embarque);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="orderVModel"></param>
+        /// <param name="orderDetailVModel"></param>
+        /// <returns></returns>
+        Task<OrderVModel> CreateShipmentV2(List<OrderDetailVModel> orderDetailVModel);
+
         /// <summary>
         /// 
         /// </summary>
@@ -42,7 +57,7 @@ namespace Continental.CUP.Repositories.Interfaces
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        OrderVModel GetQueryOrderComplete(int id);
+        OrderVModel GetQueryOrderComplete(string shipment);
         /// <summary>
         /// 
         /// </summary>

@@ -124,7 +124,7 @@
 
         <header class="header" id="titulo">
             <h2>@ViewData["Title"]</h2>
-            <h3>@ViewData["Message"]<strong>@Model.Portal</strong></h3>
+            @*<h3>@ViewData["Message"]<strong>@Model.Portal</strong></h3>*@
             <input type="text" value="@Model.Portal" id="portal" hidden disabled="disabled" />
             <input type="text" value="@Model.Embarque" id="embarque" hidden disabled="disabled" />
             <input type="button" class="btn btn-default" value="Regresar al monitor" onclick="window.location='@Url.Action("Monitor","Home", @Model)'" />

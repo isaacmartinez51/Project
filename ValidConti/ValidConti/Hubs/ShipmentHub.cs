@@ -57,9 +57,9 @@ namespace ValidConti.Hubs
                         if (uno.Reading == false)
                         {
                             //Busca en el xml del embarque el último pallet leido
-                            tag = listTags.Find(x => x.continentalpartnumber == uno.continentalpartnumber);
+                            tag = listTags.Find(x => x.continentalpartnumber == uno.continentalpartnumber && x.Reading == false);
                             //Si se encuentra coincidencia en el paso anterior entra en la condición
-                            if (tag != null && tag.Reading == false)
+                            if (tag != null)
                             {
                                 valid = await checkReadTag(tag, portal, embarque);
                                 if (valid == 1)

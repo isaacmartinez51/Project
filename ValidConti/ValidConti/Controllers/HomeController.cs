@@ -27,12 +27,14 @@ namespace ValidConti.Controllers
         private IOrderRepository _contextOrder;
         private IOrderDetailRepository _contextOrderDetail;
         private BusinessPlatform platform;
+        private BusinessShipment _shipment;
         public HomeController(ApplicationDbContext context, IOrderRepository contextOrder, IOrderDetailRepository contextOrderDetail)
         {
             _context = context;
             _contextOrder = contextOrder;
             _contextOrderDetail = contextOrderDetail;
             platform = new BusinessPlatform(_context, _contextOrder);
+            _shipment = new BusinessShipment(_context, _contextOrder);
         }
         #region Get API Embarques Information
         // el parametro debe ser un entero
@@ -48,10 +50,7 @@ namespace ValidConti.Controllers
                 {
                     var json = reader.ReadToEnd();
                     ShipmentVModel result = JsonConvert.DeserializeObject<ShipmentVModel>(json);
-                    if (int.Parse(result.cancelado) != 0)
-                        return result;
-                    else
-                        throw new DataValidationException("Error", string.Format("Embarque cancelado"));
+                    return result;
                 }
             }
             catch (Exception ex)
@@ -92,68 +91,25 @@ namespace ValidConti.Controllers
             OrderEModel orderModel = new OrderEModel();
             int palletBox = 0;
 
+            #region Nueva
+
             try
             {
                 if (ModelState.IsValid)
                 {
-                    #region Fill select
-                    ViewBag.ReaderList = new SelectList(platform.GetPlatforms(), "ReaderID", "Name");
-                    #endregion
-                    var exist = _contextOrder.GetOrderOnshipment(item.ShipmentNumber);
-                    if (exist == null)
+                    //TODO: IF para validar si esta terminado
+                    if (_shipment.OrderFinished(item.ShipmentNumber))
                     {
-                        #region obtener información de embarques
-                        //1.- Obtener el total de piezas
-                        ShipmentVModel result = GetShipment(item.ShipmentNumber);
-
-                        int index = 0;
-                        // 1.1.-Obtener de traza el total de piezas por tarima del número de parte
-                        foreach (OrderDetailVModel embarque in result.detalle)
-                        {
-                            #region Connection Traza
-                            string oracleConn = "Data Source= tqdb002x.tq.mx.conti.de:1521/tqtrazapdb.tq.mx.conti.de; User Id=consulta; Password= solover";
-                            string query = $"SELECT aunitsperbox * aboxperpallet FROM ETGDL.products WHERE MLFB = '{embarque.continentalpartnumber}' ";
-                            using (OracleConnection connection = new OracleConnection(oracleConn))
-                            {
-                                OracleCommand command = new OracleCommand(query, connection);
-                                connection.Open();
-                                OracleDataReader reader = command.ExecuteReader();
-
-                                if (reader.Read())
-                                {
-                                    palletBox = reader.GetInt32(0);
-                                }
-                                reader.Close();
-                            }
-
-                            #endregion
-                            Console.WriteLine(index);
-                            //TODO: Conectar con traza y mediante el numero de parte obtener el total de piezas por pallet
-                            //int pallets = int.Parse(embarque.cantidad) / 48;
-
-                            int pallets = int.Parse(embarque.cantidad) / palletBox;
-                            if (pallets == 0)
-                                throw new DataValidationException("Error", string.Format("Error de conexión con Embarques"));
-                            embarque.OrderID = orderModel.OrderID;
-                            embarque.shipment = orderModel.ShipmentNumber;
-                            Console.WriteLine(embarque.continentalpartnumber);
-                            embarque.total_pallets = pallets;
-                            index++;
-                        }
-                        #endregion
-
-                        #region CreateShipment
-
-                        orders = await _contextOrder.CreateShipment(item, result.detalle);
-
-                        #endregion
-
-                        ViewBag.OrderDetail = orders.ListOrderDetail;
-                        ViewBag.Show = true;
-                        return View(orders);
+                        ViewBag.shipment = "El embarque n.-" + item.ShipmentNumber + " ya esta terminado.";
+                        ViewBag.Show = false;
+                        ModelState.Clear();
+                        return View();
                     }
-                    else if (exist.OnShipment == true && exist.Finished == false && exist.ReaderID != null)
+
+                    // Preguntar si ya existe el embarque y esta asignado
+                    else if (_shipment.OrderExistAssign(item.ShipmentNumber))
                     {
+                        var exist = _contextOrder.GetOrderOnshipment(item.ShipmentNumber);
                         var mntr = GetInfoMonitor(exist.OrderID);
                         mntr.IdOrden = exist.OrderID;
                         mntr.IdPortal = (int)exist.ReaderID;
@@ -161,18 +117,66 @@ namespace ValidConti.Controllers
                         mntr.Portal = exist.Portal;
                         return RedirectToAction("Monitor", mntr);//Monitor = mntr
                     }
-                    else if (exist.Finished == true)
+                    // Preguntar si ya existe el embarque 
+                    else if (_shipment.OrderExist(item.ShipmentNumber))
                     {
-                        ViewBag.shipment = "El embarque n.-"+ item.ShipmentNumber + " ya esta terminado.";
-                        ViewBag.Show = false;
-                        ModelState.Clear();
-                        return View();
+                        #region Fill select
+                        ViewBag.ReaderList = new SelectList(platform.GetPlatforms(), "ReaderID", "Name");
+                        #endregion
+                        #region obtener información de embarques
+                        //1.- Obtener el total de piezas
+                        ShipmentVModel result = GetShipment(item.ShipmentNumber);
+
+                        if (int.Parse(result.cancelado) == 0)
+                        {
+                            // Obtener todos los datos del embarque
+                            #region CreateShipment
+
+                            orders =  _contextOrder.GetQueryOrderComplete(result.detalle[0].embarque);
+
+                            #endregion
+                        }
+
+                        #endregion
+
+                        ViewBag.OrderDetail = orders.ListOrderDetail;
+                        ViewBag.Show = true;
+                        return View(orders);
+
                     }
                     else
                     {
-                        ViewBag.Show = true;
-                        orders = _contextOrder.GetQueryOrderComplete(exist.OrderID);
+
+                        #region TODO:Creae un metodo para esto
+                        #region Fill select
+                        ViewBag.ReaderList = new SelectList(platform.GetPlatforms(), "ReaderID", "Name");
+                        #endregion
+
+                        //1.- Obtener el total de piezas
+                        ShipmentVModel result = GetShipment(item.ShipmentNumber);
+
+                        int index = 0;
+                        // 1.1.-Obtener de traza el total de piezas por tarima del número de parte
+                        foreach (OrderDetailVModel embarque in result.detalle)
+                        {
+                            //TODO: Conectar con traza y mediante el numero de parte obtener el total de piezas por pallet
+                            int pallets = int.Parse(embarque.cantidad) / 100;
+
+                            //int pallets = int.Parse(embarque.cantidad) / palletBox;
+                            if (pallets == 0)
+                                throw new DataValidationException("Error", string.Format("Error de conexión con Embarques"));
+                            embarque.total_pallets = pallets;
+                            index++;
+                        }
+                        #endregion
+
+                        #region CreateShipment
+
+                        orders = await _contextOrder.CreateShipmentV2(result.detalle);
+
+                        #endregion
                         ViewBag.OrderDetail = orders.ListOrderDetail;
+                        ViewBag.Show = true;
                         return View(orders);
                     }
 
@@ -180,13 +184,115 @@ namespace ValidConti.Controllers
                 else
                     ViewBag.Show = false;
             }
-            catch (DataValidationException dex)
+           catch (Exception dex)
             {
                 ViewBag.Show = false;
                 ViewBag.Alert = false;
-                return RedirectToAction("Error", dex.ErrorMessage);
+                return RedirectToAction(dex.Message);
             }
             return View();
+
+            #endregion
+
+            #region Funcional
+
+
+            //try
+            //{
+            //    if (ModelState.IsValid)
+            //    {
+            //        #region Fill select
+            //        ViewBag.ReaderList = new SelectList(platform.GetPlatforms(), "ReaderID", "Name");
+            //        #endregion
+            //        var exist = _contextOrder.GetOrderOnshipment(item.ShipmentNumber);
+            //        if (exist == null)
+            //        {
+            //            #region obtener información de embarques
+            //            1.- Obtener el total de piezas
+            //            ShipmentVModel result = GetShipment(item.ShipmentNumber);
+
+            //            int index = 0;
+            //             1.1.-Obtener de traza el total de piezas por tarima del número de parte
+            //            foreach (OrderDetailVModel embarque in result.detalle)
+            //            {
+            //                #region Connection Traza
+            //                string oracleConn = "Data Source= tqdb002x.tq.mx.conti.de:1521/tqtrazapdb.tq.mx.conti.de; User Id=consulta; Password= solover";
+            //                string query = $"SELECT aunitsperbox * aboxperpallet FROM ETGDL.products WHERE MLFB = '{embarque.continentalpartnumber}' ";
+            //                using (OracleConnection connection = new OracleConnection(oracleConn))
+            //                {
+            //                    OracleCommand command = new OracleCommand(query, connection);
+            //                    connection.Open();
+            //                    OracleDataReader reader = command.ExecuteReader();
+
+            //                    if (reader.Read())
+            //                    {
+            //                        palletBox = reader.GetInt32(0);
+            //                    }
+            //                    reader.Close();
+            //                }
+
+            //                #endregion
+            //                Console.WriteLine(index);
+            //                TODO: Conectar con traza y mediante el numero de parte obtener el total de piezas por pallet
+            //                int pallets = int.Parse(embarque.cantidad) / 100;
+
+            //                int pallets = int.Parse(embarque.cantidad) / palletBox;
+            //                if (pallets == 0)
+            //                    throw new DataValidationException("Error", string.Format("Error de conexión con Embarques"));
+            //                embarque.OrderID = orderModel.OrderID;
+            //                embarque.shipment = orderModel.ShipmentNumber;
+            //                Console.WriteLine(embarque.continentalpartnumber);
+            //                embarque.total_pallets = pallets;
+            //                index++;
+            //            }
+            //            #endregion
+
+            //            #region CreateShipment
+
+            //            orders = await _contextOrder.CreateShipment(item, result.detalle);
+
+            //            #endregion
+
+            //            ViewBag.OrderDetail = orders.ListOrderDetail;
+            //            ViewBag.Show = true;
+            //            return View(orders);
+            //        }
+            //        else if (exist.OnShipment == true && exist.Finished == false && exist.ReaderID != null)
+            //        {
+            //            var mntr = GetInfoMonitor(exist.OrderID);
+            //            mntr.IdOrden = exist.OrderID;
+            //            mntr.IdPortal = (int)exist.ReaderID;
+            //            mntr.Embarque = exist.ShipmentNumber;
+            //            mntr.Portal = exist.Portal;
+            //            return RedirectToAction("Monitor", mntr);//Monitor = mntr
+            //        }
+            //        else if (exist.Finished == true)
+            //        {
+            //            ViewBag.shipment = "El embarque n.-" + item.ShipmentNumber + " ya esta terminado.";
+            //            ViewBag.Show = false;
+            //            ModelState.Clear();
+            //            return View();
+            //        }
+            //        else
+            //        {
+            //            ViewBag.Show = true;
+            //            orders = _contextOrder.GetQueryOrderComplete(exist.ShipmentNumber);
+            //            ViewBag.OrderDetail = orders.ListOrderDetail;
+            //            return View(orders);
+            //        }
+
+            //    }
+            //    else
+            //        ViewBag.Show = false;
+            //}
+            //catch (Exception dex)
+            //{
+            //    ViewBag.Show = false;
+            //    ViewBag.Alert = false;
+            //    return RedirectToAction(dex.Message);
+            //}
+            //return View();
+            #endregion
         }
 
         public IActionResult Shipment(MonitorVModel item)
@@ -332,10 +438,10 @@ namespace ValidConti.Controllers
                 else
                     ViewBag.Show = false;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 //TODO: Generar un platilla para errores
-                return RedirectToAction("Error");
+                return RedirectToAction(ex.Message);
             }
             return null;
         }

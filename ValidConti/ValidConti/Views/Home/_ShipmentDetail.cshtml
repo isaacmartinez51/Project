@@ -96,7 +96,8 @@
                 <section class="DropDown">
                     <br />
                     @Html.DropDownList("ReaderID", (IEnumerable<SelectListItem>)ViewBag.ReaderList, "Seleccione Anden")
-                    <input type="hidden" asp-for="OrderID" class="form-control" />
+                    <input type="hidden" asp-for="ReaderID" class="form-control" />
+                    <input type="hidden" asp-for="@Model.OrderID" class="form-control" />
 
                     <button id="bot" disabled="disabled" type="submit" class="btn btn-success">
                         Asignar embarque

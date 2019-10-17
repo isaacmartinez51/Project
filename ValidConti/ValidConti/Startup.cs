@@ -51,8 +51,9 @@ namespace ValidConti
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             //SignalR.-1
             services.AddSignalR();
-            services.AddDbContext<ApplicationDbContext>(
-               options => options.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=ContinentalCUP;User ID=sa;Password=145236")
+            services.AddDbContext<ApplicationDbContext>(    //Server=108.161.136.224;Database=ContinentalCUP;user id=sa; pwd=A12345nt;MultipleActiveResultSets=true
+               options => options.UseSqlServer("Server=108.161.136.224;Database=ContinentalCUP;user id=sa; pwd=A12345nt;MultipleActiveResultSets=true")
+               //options => options.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=ContinentalCUP;User ID=sa;Password=145236")
            .EnableSensitiveDataLogging(true)
            .UseLoggerFactory(new LoggerFactory().AddConsole((category, level) => level == LogLevel.Information &&
                                                              category == DbLoggerCategory.Database.Command.Name, true)));

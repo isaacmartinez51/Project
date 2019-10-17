@@ -16,6 +16,100 @@ namespace Continental.CUP.Repositories.Implementations
 {
     public class OrderRepository : GenericRepository<ApplicationDbContext, OrderEModel>, IOrderRepository
     {
+
+
+        #region CreateShipment_V2
+        /// <summary>
+        /// Metodo para crear un embarque ysus detalles
+        /// </summary>
+        /// <param name="orderVModel"></param>
+        /// <param name="orderDetailVModel"></param>
+        /// <returns></returns>
+        public async Task<OrderVModel> CreateShipmentV2(List<OrderDetailVModel> orderDetailVModel)
+        {
+            try
+            {
+                int pallet = 1;
+                OrderEModel orderModel = new OrderEModel();
+                OrderVModel order = new OrderVModel();
+                OrderDetailEModel orderDetail = new OrderDetailEModel();
+                List<OrderDetailVModel> orderDetailList = new List<OrderDetailVModel>();
+
+                using (var transaction = await Context.Database.BeginTransactionAsync(IsolationLevel.RepeatableRead))
+                {
+                    var lastItemOrder = Context.Order.LastOrDefault();
+                    int idOrder = lastItemOrder == null ? 1 : lastItemOrder.OrderID + 1;
+                    // Crea el modelo para insertar en la tabla Order
+                    orderModel = new OrderEModel()
+                    {
+                        OrderID = idOrder,
+                        Date = DateTime.Now,
+                        OnShipment = false,
+                        ReaderID = null,
+                        ShipmentNumber = orderDetailVModel[0].embarque
+                    };
+
+                    Context.Order.Add(orderModel);
+                    Context.SaveChanges();
+                    order.OrderID = orderModel.OrderID;
+                    order.Date = orderModel.Date;
+                    order.OnShipment = orderModel.OnShipment;
+
+                    //TODO: Crear los detalles del EMBARQUE para la tabla OrderDetails
+                    foreach (var item in orderDetailVModel)
+                    {
+                        for (int i = 0; i < item.total_pallets; i++)
+                        {
+                            var lastItemOrderDetail = Context.OrderDetail.LastOrDefault();
+                            int idOrderDetail = lastItemOrderDetail == null ? 1 : lastItemOrderDetail.OrderDetailID + 1;
+                            orderDetail = new OrderDetailEModel()
+                            {
+                                OrderDetailID = idOrderDetail,
+                                OrderID = orderModel.OrderID,
+                                embarque = item.embarque,
+                                partida = item.partida,
+                                total_pallets = pallet,
+                                continentalpartnumber = item.continentalpartnumber,
+                                customerpartnumber = item.customerpartnumber,
+                                cantidad = item.cantidad,
+                                delivery = item.delivery,
+                                traza = item.traza,
+                                shipment = item.shipment,
+                                notas = item.shipment,
+                                Leido = false
+                            };
+                            pallet++;
+                            Context.OrderDetail.Add(orderDetail);
+                            Context.SaveChanges();
+                            var uno = JsonConvert.DeserializeObject<OrderDetailVModel>(JsonConvert.SerializeObject(orderDetail).ToString());
+                            orderDetailList.Add(uno);
+                        }
+                    }
+                    Context.SaveChanges();
+                    transaction.Commit();
+                }
+
+                order.ListOrderDetail = orderDetailList;
+                return order;
+            }
+            catch (Exception ex)
+            {
+                throw new DataValidationException("Error", string.Format("No fué posible crear el embarque: {0}", ex.Message));
+            }
+        }
+
+
+        /// <summary>
+        /// Metodo para obtener la información del embarque cuando esta creado pero no iniciado
+        /// </summary>
+        /// <returns></returns>
+        public async Task<OrderVModel> GetShipmentV2(string shipment)
+        {
+
+            return null;
+        }
+        #endregion
+
         /// <summary>
         /// 
         /// </summary>
@@ -45,7 +139,7 @@ namespace Continental.CUP.Repositories.Implementations
                         {
                             OrderID = idOrder,
                             Date = DateTime.Now,
-                            OnShipment = true,
+                            OnShipment = false,
                             ReaderID = null,
                             ShipmentNumber = order.ShipmentNumber
                         };
@@ -137,12 +231,12 @@ namespace Continental.CUP.Repositories.Implementations
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public OrderVModel GetQueryOrderComplete(int id)
+        public OrderVModel GetQueryOrderComplete(string shipment)
         {
             try
             {
                 List<OrderDetailVModel> query = Context.OrderDetail
-                       .Where(x => x.OrderID == id).Select(x => new OrderDetailVModel
+                       .Where(x => x.embarque == shipment).Select(x => new OrderDetailVModel
                        {
                            OrderID = x.OrderID,
                            partida = x.partida,
@@ -154,7 +248,7 @@ namespace Continental.CUP.Repositories.Implementations
                            Leido = x.Leido
                        }).ToList();
 
-                OrderVModel order = ReadsItems(x => x.OrderID == id).Select(x => new OrderVModel
+                OrderVModel order = ReadsItems(x => x.ShipmentNumber == shipment).Select(x => new OrderVModel
                 {
                     OrderID = x.OrderID,
                     ReaderID = x.ReaderID,
@@ -177,24 +271,41 @@ namespace Continental.CUP.Repositories.Implementations
         {
             try
             {
-
+                var uno = Context.Reader.ToList();
                 OrderVModel order = (from orders in ReadsItems(x => x.ShipmentNumber == embarque && x.OnShipment == true)
-                           join reader in Context.Reader on orders.ReaderID equals reader.ReaderID
-                           select new
-                           {
-                               orders,
-                               reader
-                           }).Select(x => new OrderVModel
-                           {
-                               OrderID = x.orders.OrderID,
-                               ReaderID = x.orders.ReaderID,
-                               Number = x.orders.Number,
-                               ShipmentNumber = x.orders.ShipmentNumber,
-                               OnShipment = x.orders.OnShipment,
-                               Date = x.orders.Date,
-                               Finished = x.orders.Finished,
-                               Portal = x.reader.Name
-                           }).FirstOrDefault();
+                                         join reader in Context.Reader on orders.ReaderID equals reader.ReaderID
+                                     select new
+                                     {
+                                         orders,
+                                         reader
+                                     }).Select(x => new OrderVModel
+                                     {
+                                         OrderID = x.orders.OrderID,
+                                         ReaderID = x.orders.ReaderID,
+                                         Number = x.orders.Number,
+                                         ShipmentNumber = x.orders.ShipmentNumber,
+                                         OnShipment = x.orders.OnShipment,
+                                         Date = x.orders.Date,
+                                         Finished = x.orders.Finished,
+                                     }).FirstOrDefault();
+                #region Borrar
+                //OrderVModel order = (from orders in ReadsItems(x => x.ShipmentNumber == embarque && x.OnShipment == true)
+                //           join reader in Context.Reader on orders.ReaderID equals reader.ReaderID
+                //           select new
+                //           {
+                //               orders,
+                //               reader
+                //           }).Select(x => new OrderVModel
+                //           {
+                //               OrderID = x.orders.OrderID,
+                //               ReaderID = x.orders.ReaderID,
+                //               Number = x.orders.Number,
+                //               ShipmentNumber = x.orders.ShipmentNumber,
+                //               OnShipment = x.orders.OnShipment,
+                //               Date = x.orders.Date,
+                //               Finished = x.orders.Finished,
+                //               Portal = x.reader.Name
+                //           }).FirstOrDefault();
 
                 //OrderVModel order = ReadsItems(x => x.ShipmentNumber == embarque && x.OnShipment == true).Select(x => new OrderVModel
                 //{
@@ -205,7 +316,8 @@ namespace Continental.CUP.Repositories.Implementations
                 //    OnShipment = x.OnShipment,
                 //    Date = x.Date,
                 //    Finished = x.Finished
-                //}).FirstOrDefault();
+                //}).FirstOrDefault(); 
+                #endregion
                 return order;
             }
             catch (Exception ex)
@@ -220,17 +332,17 @@ namespace Continental.CUP.Repositories.Implementations
             {
 
                 OrderLigthVModel order = (from orders in ReadsItems(x => x.OrderID == idOrder && x.OnShipment == true)
-                                     join reader in Context.Reader on orders.ReaderID equals reader.ReaderID
-                                     select new
-                                     {
-                                         orders,
-                                         reader
-                                     }).Select(x => new OrderLigthVModel
-                                     {
-                                         OrderID = x.orders.OrderID,
-                                         ReaderID = x.orders.ReaderID,
-                                         Portal = x.reader.Name
-                                     }).FirstOrDefault();
+                                          join reader in Context.Reader on orders.ReaderID equals reader.ReaderID
+                                          select new
+                                          {
+                                              orders,
+                                              reader
+                                          }).Select(x => new OrderLigthVModel
+                                          {
+                                              OrderID = x.orders.OrderID,
+                                              ReaderID = x.orders.ReaderID,
+                                              Portal = x.reader.Name
+                                          }).FirstOrDefault();
 
                 return order;
             }
